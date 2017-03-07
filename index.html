@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Clinic</title>
+
+	<link rel="stylesheet" type="text/css" href="Styles/main.css">
+</head>
+
+<body>
+	<div class="banner">
+		<img class="logo" alt="SLU Logo" src="Images/SLU_logo.png">
+		<div class="header">
+		<h1 class="headtext">Clinic Patient Information</h1>
+		        <div class="container">
+		            <div class="row">
+		               <nav class="buttons">
+		               			<a class="button button-primary" href="#">Log Patient Information</a>
+		                        <a class="button" href="Pages/AccessInfo.html">Access Information</a>
+		                        <a class="button" href="Pages/Import.html">Import</a>
+		                        <a class="button" href="Pages/Export.html">Export</a>
+		                    </nav>
+
+		            </div>
+
+		        </div>	
+		        <!-- /.container -->
+		</div>
+    </div>
+    <!-- /.banner -->
+
+    <form class="information">
+    	ID Number: <input type="number" name="IdNumber">
+	  First name:
+	  <input type="text" name="firstname">
+	  Last name:
+	  <input type="text" name="lastname">
+	  Birthday:
+	  <input type="date" name="birthday">
+	  School:
+		    <select name="schools">
+		    <option value="School of Accountancy and Business Management">SABM</option>
+		    <option value="School of Computing and Information Sciences">SCIS</option>
+		    <option value="School of Engineering and Architecture">SEA</option>
+		    <option value="School of Natural Sciences">SNS</option>
+		    <option value="School of Nursing">SON</option>
+		    <option value="School of Law">SOL</option>
+		    <option value="School of Teacher Education">STELA</option>
+		  	</select>
+	  Year:
+	  	<select name="year">
+	  		<option value="First">First</option>
+	  		<option value="Second">Second</option>
+	  		<option value="Third">Third</option>
+	  		<option value="Fourth">Fourth</option>
+	  		<option value="Fifth">Fifth</option>
+	  	</select>
+	  <textarea name="Symptoms" rows="15" cols="50">Symptoms</textarea>
+	  <br>
+	  <input type="submit">
+	</form>
+</body>
