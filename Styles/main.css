@@ -1,129 +1,58 @@
-html {
-    font-weight: 400;
-  -ms-text-size-adjust: 100%; 
-  -webkit-text-size-adjust: 100%;/
-    height: auto;
-    width: auto;
-}
-body {
-    margin: 0;
-    padding: 0;
-}
-.banner {
-    padding: 100px 0;
-    color: #f8f8f8;
-    background-size: cover;
-}
-.buttons {
-  text-align: center;
-  font-family: verdana;
-  font-size: 12px;
-  font-stretch: extra-expanded;
-  letter-spacing: 1px;
-}
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box; }
-
-.container.nav {
-  text-align:center; }
-
-.logo{
-    width: 20%;
-    height: 20%;
-    max-height: 220px;
-    max-width: 200px;
-    display: inline;
-    margin: auto;
-    margin-left: .1px;
+#maindiv{
+    float: left;
+    width: 60%;
 }
 
-.header {
-    font-family: lucida;
-    font-stretch: ultra-expanded; 
-    font-weight: 900;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    color: black;
+#sidediv{
+    float: right;
+    width: 40%;
+}
+
+#bwrap{
     text-align: center;
-    position: static;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto
-    padding: 0px;   
+    width: 70%;
+    background-color: gray;
+    margin-left:15%;   
 }
 
-.information {
-  margin: auto;
-  text-align: center;
+#head{
+    height: 23%;
 }
 
-.submit {
-	text-align: center;
+#logodiv{
+    margin-left: 8%;
+    margin-top: 2%;
+    float: left;
 }
 
-input, select {
-    width: auto;
-    padding: 12px 20px;
-    margin: auto;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+#headlogo{
+    height: 70%;
+    float: left;
 }
 
-input:focus {
-    border: 3px solid #555;
+.button{
+    width: 80%;
+    height: 10%;
 }
 
-input [type=submit] {
-  margin: auto;
-  width: auto;
-  text-align: center;
-  padding: 10px;
+.bgroup{
+    padding-left: 5%;
+    padding-top: 2%;
+    width: 90%;
 }
 
-.symptoms {
-  padding: 2px;
-  margin: auto;
+#bwrap div:first-of-type  div{
+    float: left;
 }
 
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  display: inline-block;
-  height: 45px;
-  padding: 0 30px;
-  color: #555;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 38px;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: darkgrey;
-  border-radius: 4px;
-  border: 1px solid #bbb;
-  cursor: pointer;
-  box-sizing: border-box; }
 
-.buttons {
-	text-align: center;
-	font-family: verdana;
-	font-size: 12px;
-	font-stretch: extra-expanded;
-	letter-spacing: 1px;
+#addform{
+    text-align: center;
+    width: 50%;
+    padding-left: 25%;
 }
 
-button,
-.button {
-  margin-bottom: 1rem; }
+#headtxt{
+    float: right;
+    width:80%; 
+}
