@@ -13,11 +13,14 @@ function get_AssgDetails () {
 		assignment = JSON.parse(localStorage.getItem('assignment'));
 	}else{
 		assignment = [];
-	}s
+	}
 
 	assignment.push(newAssgDetails);
 	localStorage.setItem('assignment', JSON.stringify(assignment));
 
-	var robject = localStorage.getItem('assignment');
-	console.log('robject', JSON.parse(robject));
+	var robject = JSON.parse(localStorage.getItem('assignment'));
+
+	for (var i=0, len = localStorage.length;i < len;i++ ){
+		console.log(localStorage.getItem(localStorage.key(i)));
+	}
 }
