@@ -1,0 +1,58 @@
+#maindiv{
+    float: left;
+    width: 60%;
+}
+
+#sidediv{
+    float: right;
+    width: 40%;
+}
+
+#bwrap{
+    text-align: center;
+    width: 70%;
+    background-color: gray;
+    margin-left:15%;   
+}
+
+#head{
+    height: 23%;
+}
+
+#logodiv{
+    margin-left: 8%;
+    margin-top: 2%;
+    float: left;
+}
+
+#headlogo{
+    height: 70%;
+    float: left;
+}
+
+.button{
+    width: 80%;
+    height: 10%;
+}
+
+.bgroup{
+    padding-left: 5%;
+    padding-top: 2%;
+    width: 90%;
+}
+
+#bwrap div:first-of-type  div{
+    float: left;
+}
+
+
+#addform{
+    text-align: center;
+    width: 50%;
+    padding-left: 25%;
+}
+
+#headtxt{
+    float: right;
+    width:80%; 
+}
