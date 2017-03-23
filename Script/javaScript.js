@@ -1,11 +1,10 @@
 
 function get_AssgDetails () {
-
 	var newAssgDetails = {};
 
 	newAssgDetails	.assgName = document.getElementById('aname').value;
 	newAssgDetails	.assgSubject = document.getElementById('asubj').value;
-	newAssgDetails	.assgDetails = document.getElementById('adate').value;
+	newAssgDetails	.assgDetails = document.getElementById('adet').value;
 	newAssgDetails	.assgDate = document.getElementById('adate').value;
 
 	if (localStorage.assignment) {
@@ -17,7 +16,9 @@ function get_AssgDetails () {
 	assignment.push(newAssgDetails);
 	localStorage.setItem('assignment', JSON.stringify(assignment));
 
-	}
+}
+
+	
 
 function get_CsDetails () {
 
