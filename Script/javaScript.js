@@ -22,7 +22,7 @@ function get_AssgDetails () {
 
 function get_CsDetails () {
 
-	var newCsgDetails = {};
+	var newCsDetails = {};
 
 	newCsDetails	.csName = document.getElementById('csname').value;
 	newCsDetails	.csScore = document.getElementById('csscore').value;
@@ -34,7 +34,7 @@ function get_CsDetails () {
 		classStanding = [];
 	}             
 
-	classStanding.push(newCsgDetails);
+	classStanding.push(newCsDetails);
 	localStorage.setItem('classStanding', JSON.stringify(classStanding));
 
 }
