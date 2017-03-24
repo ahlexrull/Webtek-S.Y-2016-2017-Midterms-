@@ -7,6 +7,19 @@ function get_AssgDetails () {
 	newAssgDetails	.assgDetails = document.getElementById('adet').value;
 	newAssgDetails	.assgDate = document.getElementById('adate').value;
 
+	if(newAssgDetails.assgName == ''){
+		alert("Assignment Name must be filled out!");
+		return false;
+	}
+	if(newAssgDetails.assgSubject == ''){
+		alert("Subject must be filled out!");
+		return false;
+	}
+	if(newAssgDetails.assgDate == ''){
+		alert("Date must be filled out!");
+		return false;
+	}
+
 	if (localStorage.assignment) {
 		assignment = JSON.parse(localStorage.getItem('assignment'));
 	}else{
@@ -18,8 +31,6 @@ function get_AssgDetails () {
 
 }
 
-	
-
 function get_CsDetails () {
 
 	var newCsDetails = {};
@@ -27,7 +38,20 @@ function get_CsDetails () {
 	newCsDetails	.csName = document.getElementById('csname').value;
 	newCsDetails	.csScore = document.getElementById('csscore').value;
 	newCsDetails	.csPoint = document.getElementById('cspoint').value;
+	
+	if(newCsDetails.csName == ''){
+		alert("Cs name must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csScore == ''){
+		alert("Cs Score must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csPoint == ''){
+		alert("Cs point must be filled out!");
+		return false;
 
+	}
 	if (localStorage.classStanding) {
 		classStanding = JSON.parse(localStorage.getItem('classStanding'));
 	}else{
