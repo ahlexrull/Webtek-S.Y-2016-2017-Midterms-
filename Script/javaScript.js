@@ -115,9 +115,9 @@ function display_CsDetails (){
 			var cell2cs = rowcs.insertCell(1);
 			var cell3cs = rowcs.insertCell(2);
 
-			cell1cs.innerHTML = csDetails[i].csname;
-			cell2cs.innerHTML = csDetails[i].csscore;
-			cell3cs.innerHTML = csDetails[i].cspoint;
+			cell1cs.innerHTML = csDetails[i].csName;
+			cell2cs.innerHTML = csDetails[i].csScore;
+			cell3cs.innerHTML = csDetails[i].csPoint;
 		}
 	}else{
 		alert("No Class Standing as of the moment.");
