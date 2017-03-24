@@ -69,6 +69,18 @@ function display_AssgDetails (){
 		alert("Hello");
 		for (var i=0, len = assignmentDetails.length;i < len;i++ ){
 			console.log(assignmentDetails[i]);
+			var table = document.getElementById("assignmentTable");
+			var row = table.insertRow(0);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+
+			cell1.innerHTML = assignmentDetails[i].assgName;
+			cell2.innerHTML = assignmentDetails[i].assgSubject;
+			cell3.innerHTML = assignmentDetails[i].assgDetails;
+			cell4.innerHTML = assignmentDetails[i].assgDate;
+
 		}
 	}else{
 		alert("No assignments as of the moment.");
@@ -79,7 +91,9 @@ function display_CsDetails (){
 		var CsDetails = JSON.parse(localStorage.getItem('classStanding'));
 
 		for (var i=0, len = CsDetails.length;i < len;i++ ){
+
 			console.log(CsDetails[i]);
+
 		}
 	}else{
 		alert("No Class Standing as of the moment.");
