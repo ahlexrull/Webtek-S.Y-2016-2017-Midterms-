@@ -31,6 +31,21 @@ function get_AssgDetails () {
 
 }
 
+function get_subjects (){
+	var sub;
+	if (localStorage.subjects) {
+		subjects = JSON.parse(localStorage.getItem('subjects'));
+	}else{
+		subjects = [];
+	}
+
+	sub = document.getElementById('subname').value;
+
+	subjects.push(sub);
+	localStorage.setItem('subjects', JSON.stringify(subjects))
+
+}
+
 function get_CsDetails () {
 
 	var newCsDetails = {};
