@@ -80,9 +80,10 @@ function get_CsDetails () {
 
 function display_AssgDetails (){
 	if (localStorage.assignment){
+
 		var assignmentDetails = JSON.parse(localStorage.getItem('assignment'));
-		alert("Hello");
-		for (var i=0, len = assignmentDetails.length;i < len;i++ ){
+
+		for (var i=0, len = assignmentDetails.length; i < len; i++ ){
 			console.log(assignmentDetails[i]);
 			var table = document.getElementById("assignmentTable");
 			var row = table.insertRow(1);
@@ -95,20 +96,28 @@ function display_AssgDetails (){
 			cell2.innerHTML = assignmentDetails[i].assgSubject;
 			cell3.innerHTML = assignmentDetails[i].assgDetails;
 			cell4.innerHTML = assignmentDetails[i].assgDate;
-
 		}
+
 	}else{
 		alert("No assignments as of the moment.");
 	}
 }
 function display_CsDetails (){
 	if (localStorage.classStanding){
-		var CsDetails = JSON.parse(localStorage.getItem('classStanding'));
 
-		for (var i=0, len = CsDetails.length;i < len;i++ ){
+		var csDetails = JSON.parse(localStorage.getItem('classStanding'));
 
-			console.log(CsDetails[i]);
+		for (var i=0, len = csDetails.length; i < len; i++ ){
+			console.log(csDetails[i]);
+			var tablecs = document.getElementById("cStable");
+			var rowcs = tablecs.insertRow(1);
+			var cell1cs = rowcs.insertCell(0);
+			var cell2cs = rowcs.insertCell(1);
+			var cell3cs = rowcs.insertCell(2);
 
+			cell1cs.innerHTML = csDetails[i].csname;
+			cell2cs.innerHTML = csDetails[i].csscore;
+			cell3cs.innerHTML = csDetails[i].cspoint;
 		}
 	}else{
 		alert("No Class Standing as of the moment.");

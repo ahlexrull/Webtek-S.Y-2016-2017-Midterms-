@@ -2,10 +2,10 @@
 <html>
     <header>
         <link rel="stylesheet" type="text/css" href="../styles/main.css">
-        <script type="text/javaScript" src="../Script/javaScript.js">window.onload = display_AssgDetails();</script>
+        <script type="text/javaScript" src="../Script/javaScript.js"></script>
     </header>
     
-    <body>
+    <body onload="display_AssgDetails();">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -28,6 +28,7 @@
                         <th>Details</th>
                         <th>Date</th>
                     </tr>
+                </table>
                 <!-- <table id="assign">
                           <tr>
                             <th colspan="2">Assignment</th>
