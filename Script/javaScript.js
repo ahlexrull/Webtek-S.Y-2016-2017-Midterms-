@@ -104,29 +104,11 @@ function display_AssgDetails (){
 			var cell2 = row.insertCell(1);
 			var cell3 = row.insertCell(2);
 			var cell4 = row.insertCell(3);
-			var cell5 = row.insertCell(4);
-			var cell6 = row.insertCell(5);
-
 
 			cell1.innerHTML = assignmentDetails[i].assgName;
 			cell2.innerHTML = assignmentDetails[i].assgSubject;
 			cell3.innerHTML = assignmentDetails[i].assgDetails;
-			{
-				var time;
-				var date;
-				var datetime = assignmentDetails[i].assgDate.split("T");
-
-				date = datetime[0];
-				time = datetime[1];
-				cell4.innerHTML = date;
-				cell5.innerHTML = time;
-				var today = new Date();
-				var newdate = date.split("-");
-				var duedate = new Date();
-				duedate.setFullYear(newdate[0], newdate[]);
-				cell6.innerHTML = due_countdown(assignmentDetails[i].assgDate);
-			}
-			
+			cell4.innerHTML = assignmentDetails[i].assgDate;
 		}
 
 	}else{
@@ -147,19 +129,16 @@ function get_CsDetails () {
 	newCsDetails	.csScore = document.getElementById('csscore').value;
 	newCsDetails	.csPoint = document.getElementById('cspoint').value;
 	
-	var score = Number(newCsDetails.csScore);
-	var points = Number(newCsDetails.csPoint);
-
-	if(score > points){
-		alert("Overall Points should be larger or equal to score");
-		return false;
-	}
-	if(newCsDetails.csPoint == "0" ){
-		alert("Overall Points should be larger or equal to score ");
-		return false;
-	}
 	if(newCsDetails.csName == ''){
 		alert("Cs name must be filled out!");
+		return false;
+	}
+        if(parseInt(newCsDetails.csPoint) == 0){
+		alert("Invalid Overall Score!");
+		return false;
+	}
+	if(parseInt(newCsDetails.csPoint) < parseInt(newCsDetails.csScore)){
+		alert("Invalid CS score!");
 		return false;
 	}
 	if(newCsDetails.csSubject == '' || newCsDetails.csSubject == "Select Subject"){
@@ -180,9 +159,10 @@ function get_CsDetails () {
 	}else{
 		classStanding = [];
 	}             
-
+        alert("Score has been recorded.");
 	classStanding.push(newCsDetails);
 	localStorage.setItem('classStanding', JSON.stringify(classStanding));
+        
 
 }
 
@@ -207,4 +187,15 @@ function display_CsDetails (){
 	}else{
 		alert("No Class Standing as of the moment.");
 	}
+}
+
+function remove_AllCs (){
+    if (localStorage.classStanding){
+        localStorage.removeItem('classStanding');
+        window.location.reload();
+    }
+    else{
+        alert("No CS records to delete");
+    }
+    
 }
