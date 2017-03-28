@@ -104,16 +104,33 @@ function display_AssgDetails (){
 			var cell2 = row.insertCell(1);
 			var cell3 = row.insertCell(2);
 			var cell4 = row.insertCell(3);
+			var cell5 = row.insertCell(4);
+			var cell6 = row.insertCell(5);
+
 
 			cell1.innerHTML = assignmentDetails[i].assgName;
 			cell2.innerHTML = assignmentDetails[i].assgSubject;
 			cell3.innerHTML = assignmentDetails[i].assgDetails;
-			cell4.innerHTML = assignmentDetails[i].assgDate;
+			{
+				var time;
+				var date;
+				var datetime = assignmentDetails[i].assgDate.split("T");
+
+				date = datetime[0];
+				time = datetime[1];
+				cell4.innerHTML = date;
+				cell5.innerHTML = time;
+			}
+			cell6.innerHTML = due_countdown(assignmentDetails[i].assgDate);
 		}
 
 	}else{
 		alert("No assignments as of the moment.");
 	}
+}
+
+function due_countdown (duedate){
+	return true;
 }
 
 /*
