@@ -147,6 +147,17 @@ function get_CsDetails () {
 	newCsDetails	.csScore = document.getElementById('csscore').value;
 	newCsDetails	.csPoint = document.getElementById('cspoint').value;
 	
+	var score = Number(newCsDetails.csScore);
+	var points = Number(newCsDetails.csPoint);
+
+	if(score > points){
+		alert("Overall Points should be larger or equal to score");
+		return false;
+	}
+	if(newCsDetails.csPoint == "0" ){
+		alert("Overall Points should be larger or equal to score ");
+		return false;
+	}
 	if(newCsDetails.csName == ''){
 		alert("Cs name must be filled out!");
 		return false;
