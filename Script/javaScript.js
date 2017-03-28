@@ -1,5 +1,6 @@
 
 function get_AssgDetails () {
+	show_sub();
 	var newAssgDetails = {};
 
 	newAssgDetails	.assgName = document.getElementById('aname').value;
@@ -31,6 +32,8 @@ function get_AssgDetails () {
 
 }
 
+
+
 function get_subjects (){
 	var sub;
 	if (localStorage.subjects) {
@@ -46,8 +49,26 @@ function get_subjects (){
 
 }
 
-function get_CsDetails () {
+function show_sub() {
+	var val;
+	if (localStorage.subjects) {
+		subjects = JSON.parse(localStorage.getItem('subjects'))
+	}else{
+		subjects = []
+	}
 
+	for(let i = 0;i < subjects.length;i++){
+		val = subjects[i];
+		var node = document.createElement("option");
+		var textnode = document.createTextNode(val);
+		node.appendChild(textnode);
+		document.getElementById("subselect").appendChild(node);
+	}
+	
+}
+
+function get_CsDetails () {
+	show_sub();
 	var newCsDetails = {};
 
 	newCsDetails	.csName = document.getElementById('csname').value;

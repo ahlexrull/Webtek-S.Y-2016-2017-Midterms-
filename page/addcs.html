@@ -5,7 +5,7 @@
         <script type="text/javaScript" src="../Script/javaScript.js"></script>
     </header>
     
-    <body>
+    <body onload="get_CsDetails();">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -22,12 +22,17 @@
                 <form id="addform">
                     <p>Class Standing Name:</p>
                     <input type="text" id="csname">
+                    <p>Subject:</p>
+                    <!--<input type="text" id="asubj">-->
+                    <select id="subselect">
+
+                    </select>
                     <p>Score:</p>
                     <input type="number" id="csscore">
                     <p>Overall Points:</p>
                     <input type="number" id="cspoint" >
                     <br>
-                    <button onclick="get_CsDetails()">Submit</button>
+                    <button>Submit</button>
                 </form>
             
             
