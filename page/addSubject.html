@@ -4,7 +4,7 @@
         <script type="text/javaScript" src="../Script/javaScript.js"></script>
     </header>
     
-    <body onload="get_subjects()">
+    <body>
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -13,7 +13,7 @@
             <div id="headtxt">
                 <h1>Student Academic Helper</h1>
                 <h4>Manage Subjects</h4>
-                <a href="assign.html">Back</a>
+                <a href="subjects.html">Back</a>
             </div>
         </div>
         <hr>
@@ -21,7 +21,7 @@
                 <form id="addform">
                     <p>Subject Name:</p>
                     <input type="text" id="subname">
-                    <button>submit</button>
+                    <button onclick="get_subjects()">submit</button>
                 </form>
         </div>
         

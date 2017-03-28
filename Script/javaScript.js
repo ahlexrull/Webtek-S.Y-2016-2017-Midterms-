@@ -1,38 +1,6 @@
-
-function get_AssgDetails () {
-	show_sub();
-	var newAssgDetails = {};
-
-	newAssgDetails	.assgName = document.getElementById('aname').value;
-	newAssgDetails	.assgSubject = document.getElementById('asubj').value;
-	newAssgDetails	.assgDetails = document.getElementById('adet').value;
-	newAssgDetails	.assgDate = document.getElementById('adate').value;
-
-	if(newAssgDetails.assgName == ''){
-		alert("Assignment Name must be filled out!");
-		return false;
-	}
-	if(newAssgDetails.assgSubject == ''){
-		alert("Subject must be filled out!");
-		return false;
-	}
-	if(newAssgDetails.assgDate == ''){
-		alert("Date must be filled out!");
-		return false;
-	}
-
-	if (localStorage.assignment) {
-		assignment = JSON.parse(localStorage.getItem('assignment'));
-	}else{
-		assignment = [];
-	}
-
-	assignment.push(newAssgDetails);
-	localStorage.setItem('assignment', JSON.stringify(assignment));
-
-}
-
-
+/*
+* Subject Functions
+*/
 
 function get_subjects (){
 	var sub;
@@ -67,35 +35,65 @@ function show_sub() {
 	
 }
 
-function get_CsDetails () {
-	show_sub();
-	var newCsDetails = {};
+function display_subjects(){
+	if (localStorage.subjects){
 
-	newCsDetails	.csName = document.getElementById('csname').value;
-	newCsDetails	.csScore = document.getElementById('csscore').value;
-	newCsDetails	.csPoint = document.getElementById('cspoint').value;
-	
-	if(newCsDetails.csName == ''){
-		alert("Cs name must be filled out!");
-		return false;
-	}
-	if(newCsDetails.csScore == ''){
-		alert("Cs Score must be filled out!");
-		return false;
-	}
-	if(newCsDetails.csPoint == ''){
-		alert("Cs point must be filled out!");
-		return false;
+		var subjects = JSON.parse(localStorage.getItem('subjects'));
 
-	}
-	if (localStorage.classStanding) {
-		classStanding = JSON.parse(localStorage.getItem('classStanding'));
+		for (var i=0, len = subjects.length; i < len; i++ ){
+			console.log(subjects[i]);
+			var table = document.getElementById("subjects");
+			var row = table.insertRow(1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+
+			cell1.innerHTML = assignmentDetails[i].assgName;
+			cell2.innerHTML = assignmentDetails[i].assgSubject;
+			cell3.innerHTML = assignmentDetails[i].assgDetails;
+			cell4.innerHTML = assignmentDetails[i].assgDate;
+		}
+
 	}else{
-		classStanding = [];
-	}             
+		alert("No assignments as of the moment.");
+	}
 
-	classStanding.push(newCsDetails);
-	localStorage.setItem('classStanding', JSON.stringify(classStanding));
+}
+
+/*
+* Assignment Functions
+*/
+function get_AssgDetails () {
+	show_sub();
+	var newAssgDetails = {};
+
+	newAssgDetails	.assgName = document.getElementById('aname').value;
+	newAssgDetails	.assgSubject = document.getElementById('subselect').value;
+	newAssgDetails	.assgDetails = document.getElementById('adet').value;
+	newAssgDetails	.assgDate = document.getElementById('adate').value;
+
+	if(newAssgDetails.assgName == ''){
+		alert("Assignment Name must be filled out!");
+		return false;
+	}
+	if(newAssgDetails.assgSubject == '' || newAssgDetails.assgSubject == "Select Subject"){
+		alert("Subject must be filled out!");
+		return false;
+	}
+	if(newAssgDetails.assgDate == ''){
+		alert("Date must be filled out!");
+		return false;
+	}
+
+	if (localStorage.assignment) {
+		assignment = JSON.parse(localStorage.getItem('assignment'));
+	}else{
+		assignment = [];
+	}
+
+	assignment.push(newAssgDetails);
+	localStorage.setItem('assignment', JSON.stringify(assignment));
 
 }
 
@@ -123,6 +121,49 @@ function display_AssgDetails (){
 		alert("No assignments as of the moment.");
 	}
 }
+
+/*
+* CS Functions
+*/
+
+function get_CsDetails () {
+	show_sub();
+	var newCsDetails = {};
+
+	newCsDetails	.csName = document.getElementById('csname').value;
+	newCsDetails	.csSubject = document.getElementById('subselect').value;
+	newCsDetails	.csScore = document.getElementById('csscore').value;
+	newCsDetails	.csPoint = document.getElementById('cspoint').value;
+	
+	if(newCsDetails.csName == ''){
+		alert("Cs name must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csSubject == '' || newCsDetails.csSubject == "Select Subject"){
+		alert("Subject must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csScore == ''){
+		alert("Cs Score must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csPoint == ''){
+		alert("Cs point must be filled out!");
+		return false;
+
+	}
+	if (localStorage.classStanding) {
+		classStanding = JSON.parse(localStorage.getItem('classStanding'));
+	}else{
+		classStanding = [];
+	}             
+
+	classStanding.push(newCsDetails);
+	localStorage.setItem('classStanding', JSON.stringify(classStanding));
+
+}
+
+
 function display_CsDetails (){
 	if (localStorage.classStanding){
 

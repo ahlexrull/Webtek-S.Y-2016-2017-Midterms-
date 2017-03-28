@@ -5,7 +5,7 @@
         <script type="text/javaScript" src="../Script/javaScript.js"></script>
     </header>
     
-    <body onload="get_CsDetails();">
+    <body onload="show_sub()">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -25,14 +25,14 @@
                     <p>Subject:</p>
                     <!--<input type="text" id="asubj">-->
                     <select id="subselect">
-
+                        <option selected disabled hidden>Select Subject</option>
                     </select>
                     <p>Score:</p>
                     <input type="number" id="csscore">
                     <p>Overall Points:</p>
                     <input type="number" id="cspoint" >
                     <br>
-                    <button>Submit</button>
+                    <button onclick="get_CsDetails()">Submit</button>
                 </form>
             
             

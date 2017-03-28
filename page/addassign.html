@@ -4,7 +4,7 @@
         <script type="text/javaScript" src="../Script/javaScript.js"></script>
     </header>
     
-    <body onload="get_AssgDetails();">
+    <body onload="show_sub()">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -24,13 +24,13 @@
                     <p>Subject:</p>
                     <!--<input type="text" id="asubj">-->
                     <select id="subselect">
-                        <option value="">...</option>
+                        <option selected disabled hidden>Select Subject</option>
                     </select>
                     <p>Details</p>
                     <textarea rows="10" cols="40" id="adet"></textarea>
-                    <p>Date</p>
+                    <p>Due Date</p>
                     <input type="date" id="adate">
-                    <button>submit</button>
+                    <button onclick="get_AssgDetails();">submit</button>
                 </form>
         </div>
         
