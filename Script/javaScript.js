@@ -36,27 +36,21 @@ function show_sub() {
 }
 
 function display_subjects(){
+
 	if (localStorage.subjects){
 
 		var subjects = JSON.parse(localStorage.getItem('subjects'));
 
 		for (var i=0, len = subjects.length; i < len; i++ ){
 			console.log(subjects[i]);
-			var table = document.getElementById("subjects");
-			var row = table.insertRow(1);
-			var cell1 = row.insertCell(0);
-			var cell2 = row.insertCell(1);
-			var cell3 = row.insertCell(2);
-			var cell4 = row.insertCell(3);
+			var tablesub = document.getElementById("subtable");
+			var rowsub = tablesub.insertRow(1);
+			var cell1sub = rowsub.insertCell(0);
 
-			cell1.innerHTML = assignmentDetails[i].assgName;
-			cell2.innerHTML = assignmentDetails[i].assgSubject;
-			cell3.innerHTML = assignmentDetails[i].assgDetails;
-			cell4.innerHTML = assignmentDetails[i].assgDate;
+			cell1sub.innerHTML = subjects[i];
 		}
-
 	}else{
-		alert("No assignments as of the moment.");
+		alert("No Class Standing as of the moment.");
 	}
 
 }
