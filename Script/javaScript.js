@@ -128,6 +128,7 @@ function display_AssgDetails (){
 			}
 
 			{
+
 				// Set the date we're counting down to
 				var countDownDate = new Date(assignmentDetails[i].assgDate).getTime();
 
@@ -147,21 +148,20 @@ function display_AssgDetails (){
 					var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 					// Display the result in the element with id="assignmentTable"
-					var ctdown = document.getElementById("assignmentTable").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+					var ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 					
 					cell6.innerHTML = ctdown;
 
-					// If the count down is finished, write some text 
+					// If the count down is finished, write "EXPIRED" 
 					if (distance < 0) {
 						clearInterval(x);
-						var ctdown = document.getElementById("assignmentTable").innerHTML = "EXPIRED";
+						var ctdown1  = "EXPIRED";
 
-						cell6.innerHTML = ctdown;
+						cell6.innerHTML = ctdown1;
 						
 				  	}
 				}, 1000);
 			}
-			
 		}
 
 	}else{
