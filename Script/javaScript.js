@@ -120,17 +120,18 @@ function display_AssgDetails (){
 				time = datetime[1];
 				cell4.innerHTML = date;
 				cell5.innerHTML = time;
+				var today = new Date();
+				var newdate = date.split("-");
+				var duedate = new Date();
+				duedate.setFullYear(newdate[0], newdate[]);
+				cell6.innerHTML = due_countdown(assignmentDetails[i].assgDate);
 			}
-			cell6.innerHTML = due_countdown(assignmentDetails[i].assgDate);
+			
 		}
 
 	}else{
 		alert("No assignments as of the moment.");
 	}
-}
-
-function due_countdown (duedate){
-	return true;
 }
 
 /*
