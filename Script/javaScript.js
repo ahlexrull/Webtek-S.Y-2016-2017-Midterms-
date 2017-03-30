@@ -23,6 +23,8 @@ function show_sub() {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
 	}else{
 		subjects = []
+		alert("Add subjects first.");
+		location = '../page/addsubject.html'
 	}
 
 	for(let i = 0;i < subjects.length;i++){
@@ -115,20 +117,79 @@ function display_AssgDetails (){
 			{
 				let time;
 				let date;
+				let hour;
+				let min;
+				let timeDue;
+				let amPm = "AM";
 				let datearray;
 				let timearray;
 				let datetime = assignmentDetails[i].assgDate.split("T");
 
 				date = datetime[0];
 				time = datetime[1];
+
 				cell4.innerHTML = date;
-				cell5.innerHTML = time;
 
 				datearray = date.split("-");
 				timearray = time.split(":");
 
+				hour = parseInt(timearray[0]);
+				min = parseInt(timearray[1]);
+
+				if(hour > 12){
+					hour = hour - 12;
+					amPm = "PM";
+				}
+
+				if(min === 0){
+					min = "00";
+				}
+
+				if (min < 10) {
+					min = "0" + min;
+				}
+
+				timeDue = hour + ":" + min + " " + amPm;
+				cell5.innerHTML = timeDue;
+
 				var dueDate = new Date(datearray[0], datearray[1] -1, datearray[2], timearray[0], timearray[1], 0, 0);
+
+				var ctdown;
+				var now = new Date();
+
+				// Find the distance between now an the count down date
+				var distance = dueDate.getTime() - now.getTime();
+				console.log(distance);
+
+				if (dueDate < now) {
+					//clearInterval(x);
+					ctdown  = "EXPIRED";
+					cell6.innerHTML = ctdown;
+				}else{
+				 	// Time calculations for days, hours, minutes and seconds
+				 	let days;
+				 	let hours;
+				 	let minutes;
+				 	let seconds;
+
+					days = Math.floor(distance / (1000 * 60 * 60 * 24));
+					console.log(days);
+					if (days === 0) {
+						hours = Math.floor(distance / (1000 * 60 *60));
+					}else{
+						hours = Math.floor(distance % (distance / (1000 * 60 * 60 * 24)));	
+					}
+					console.log(hours);
+					minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+					console.log(minutes);
+					seconds = Math.floor((distance % (1000 * 60)) / 1000);
+					console.log(seconds);
+					// Display the result in the element with id="assignmentTable"
+					ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 				//console.log(dueDate);
+				}
+				cell6.innerHTML = ctdown;
+				/*
 				{
 					// Set the date we're counting down to
 					// Update the count down every 1 second
@@ -161,12 +222,15 @@ function display_AssgDetails (){
 							cell6.innerHTML = ctdown;
 						}		  	
 					}, 1000));
+					
 				}
+				*/
 			}				
 		}
 
 	}else{
 		alert("No assignments as of the moment.");
+		location = '../page/addassign.html';
 	}	
 }
 
@@ -242,6 +306,7 @@ function display_CsDetails (){
 		}
 	}else{
 		alert("No Class Standing as of the moment.");
+		location = '../page/addcs.html';
 	}
 }
 
