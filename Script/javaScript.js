@@ -127,13 +127,13 @@ function display_AssgDetails (){
 				datearray = date.split("-");
 				timearray = time.split(":");
 
-				var dueDate = new Date(datearray[0], datearray[1], datearray[2], timearray[0], timearray[1], 0, 0);
+				var dueDate = new Date(datearray[0], datearray[1] - 1, datearray[2] - 1, timearray[0], timearray[1], 0, 0);
 
 				{
 					// Set the date we're counting down to
 					// Update the count down every 1 second
-					var ctdown = new Array();
-					ctdown[i].push(setInterval(function() {
+					var ctdown;
+					var x = (setInterval(function() {
 
 						//var ctdown = [];
 						// Get todays date and time
@@ -141,12 +141,12 @@ function display_AssgDetails (){
 						//alert(now);
 
 						// Find the distance between now an the count down date
-						var distance = (dueDate.getTime() - now.getTime());
+						var distance = (dueDate - now);
 
-						if (dueDate > now) {
-							clearInterval(ctdown);
-							ctdown[i]  = "EXPIRED";
-							//cell6.innerHTML = ctdown[i];
+						if (dueDate < now) {
+							clearInterval(x);
+							ctdown  = "EXPIRED";
+							cell6.innerHTML = ctdown;
 						}else{
 						 	// Time calculations for days, hours, minutes and seconds
 							var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -155,11 +155,10 @@ function display_AssgDetails (){
 							var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 							// Display the result in the element with id="assignmentTable"
-							ctdown[i] = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-							//cell6.innerHTML = ctdown[i];
+							ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+							cell6.innerHTML = ctdown;
 						}		  	
 					}, 1000));
-					cell6.innerHTML = ctdown[i];
 				}
 			}				
 		}
