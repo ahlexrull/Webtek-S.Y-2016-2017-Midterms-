@@ -127,8 +127,8 @@ function display_AssgDetails (){
 				datearray = date.split("-");
 				timearray = time.split(":");
 
-				var dueDate = new Date(datearray[0], datearray[1] - 1, datearray[2] - 1, timearray[0], timearray[1], 0, 0);
-
+				var dueDate = new Date(datearray[0], datearray[1] -1, datearray[2], timearray[0], timearray[1], 0, 0);
+				//console.log(dueDate);
 				{
 					// Set the date we're counting down to
 					// Update the count down every 1 second
@@ -141,7 +141,7 @@ function display_AssgDetails (){
 						//alert(now);
 
 						// Find the distance between now an the count down date
-						var distance = (dueDate - now);
+						var distance = dueDate.getTime() - now.getTime();
 
 						if (dueDate < now) {
 							clearInterval(x);
@@ -150,7 +150,9 @@ function display_AssgDetails (){
 						}else{
 						 	// Time calculations for days, hours, minutes and seconds
 							var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-							var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+							//alert(days);
+							var hours = Math.floor(distance % (distance / (1000 * 60 * 60 * 24)));
+							//alert(hours);
 							var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 							var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
