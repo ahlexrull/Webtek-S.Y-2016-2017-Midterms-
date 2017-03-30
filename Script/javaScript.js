@@ -154,6 +154,12 @@ function display_AssgDetails (){
 
 				var dueDate = new Date(datearray[0], datearray[1] -1, datearray[2], timearray[0], timearray[1], 0, 0);
 
+				/**
+					> working code which display the remaining time before deadline
+					> no countdown
+					> value only changes after refresh..
+				*/
+				/*
 				var ctdown;
 				var now = new Date();
 
@@ -189,17 +195,18 @@ function display_AssgDetails (){
 				//console.log(dueDate);
 				}
 				cell6.innerHTML = ctdown;
-				/*
+				*/
+				/**
+					> code with set interval
+					> only the first row has a value.
+				*/
 				{
 					// Set the date we're counting down to
 					// Update the count down every 1 second
-					var ctdown;
-					var x = (setInterval(function() {
+					var x = setInterval(function() {
 
-						//var ctdown = [];
-						// Get todays date and time
+						var ctdown;
 						var now = new Date();
-						//alert(now);
 
 						// Find the distance between now an the count down date
 						var distance = dueDate.getTime() - now.getTime();
@@ -210,21 +217,28 @@ function display_AssgDetails (){
 							cell6.innerHTML = ctdown;
 						}else{
 						 	// Time calculations for days, hours, minutes and seconds
-							var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-							//alert(days);
-							var hours = Math.floor(distance % (distance / (1000 * 60 * 60 * 24)));
-							//alert(hours);
-							var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-							var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+						 	let days;
+						 	let hours;
+						 	let minutes;
+						 	let seconds;
 
+							days = Math.floor(distance / (1000 * 60 * 60 * 24));
+							console.log(days);
+							if (days === 0) {
+								hours = Math.floor(distance / (1000 * 60 *60));
+							}else{
+								hours = Math.floor(distance % (distance / (1000 * 60 * 60 * 24)));	
+							}
+							minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+							seconds = Math.floor((distance % (1000 * 60)) / 1000);
 							// Display the result in the element with id="assignmentTable"
 							ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 							cell6.innerHTML = ctdown;
-						}		  	
-					}, 1000));
+						}
+					}, 1000);
 					
 				}
-				*/
+				
 			}				
 		}
 
