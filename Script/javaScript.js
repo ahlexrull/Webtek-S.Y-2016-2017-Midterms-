@@ -52,7 +52,8 @@ function display_subjects(){
 			cell1sub.innerHTML = subjects[i];
 		}
 	}else{
-		alert("No Class Standing as of the moment.");
+		alert("No Subjects as of the moment.");
+		location = '../page/addSubjects.html';
 	}
 
 }
@@ -324,7 +325,8 @@ function display_CsDetails (){
 	}
 }
 
-function remove_ALLCs (){
+function remove_ALLCS(){
+
 	if (localStorage.classStanding) {
 		localStorage.removeItem('classStanding');
 		window.location.reload();
@@ -333,4 +335,16 @@ function remove_ALLCs (){
 		alert("NO CS records to delete");
 	}
 }
+
+function remove_ALLAssignments(){
+	if (localStorage.assignment) {
+		localStorage.removeItem('assignment');
+		window.location.reload();
+	}
+	else{
+		alert("No Assignment record to delete");
+	}
+}
+
+
 
