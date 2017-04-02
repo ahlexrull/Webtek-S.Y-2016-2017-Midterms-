@@ -314,10 +314,12 @@ function display_CsDetails (){
 			var cell1cs = rowcs.insertCell(0);
 			var cell2cs = rowcs.insertCell(1);
 			var cell3cs = rowcs.insertCell(2);
+			var cell4cs = rowcs.insertCell(3)
 
 			cell1cs.innerHTML = csDetails[i].csName;
-			cell2cs.innerHTML = csDetails[i].csScore;
-			cell3cs.innerHTML = csDetails[i].csPoint;
+			cell2cs.innerHTML = csDetails[i].csSubject;
+			cell3cs.innerHTML = csDetails[i].csScore;
+			cell4cs.innerHTML = csDetails[i].csPoint;
 		}
 	}else{
 		alert("No Class Standing as of the moment.");
