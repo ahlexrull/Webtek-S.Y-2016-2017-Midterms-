@@ -3,9 +3,10 @@
     <header>
         <link rel="stylesheet" type="text/css" href="../styles/main.css">
         <script type="text/javaScript" src="../Script/javaScript.js"></script>
+        <script type="text/javascript" src="../Script/canvasjs.min.js"></script>
     </header>
     
-    <body onload="display_CsDetails()">
+    <body onload="display_CsDetails(); loadChart();">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -32,6 +33,7 @@
             </div>
             <button onclick="removeCS()">Clear All CS</button>
         </div>
+        <div id="chartContainer" style="height: 400px; width: 100%;"></div>
         
     </body>
     
