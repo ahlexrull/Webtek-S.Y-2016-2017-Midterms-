@@ -353,36 +353,43 @@ Chart JavaScript
 **/
 
  function loadChart() {
-	var chart = new CanvasJS.Chart(document.getElementById("chartContainer"), {
-		title: {
-			text: "Line Chart"
-		},
-		axisX: {
-			interval: 10
-		},
-		data: [{
-			type: "line",
-			dataPoints: [
-			  { x: 10, y: 45 },
-			  { x: 20, y: 14 },
-			  { x: 30, y: 20 },
-			  { x: 40, y: 60 },
-			  { x: 50, y: 50 },
-			  { x: 60, y: 80 },
-			  { x: 70, y: 40 },
-			  { x: 80, y: 60 },
-			  { x: 90, y: 10 },
-			  { x: 100, y: 50 },
-			  { x: 110, y: 40 },
-			  { x: 120, y: 14 },
-			  { x: 130, y: 70 },
-			  { x: 140, y: 40 },
-			  { x: 150, y: 90 },
-			]
-		}]
-	});
-	chart.render();
-}
+	var chart = new CanvasJS.Chart("chartContainer",{
+	    title:{
+	    	text: "Number of Students in Each Room"   
+	    },
+	    animationEnabled: true,
+	    axisX:{
+	    	title: "Rooms"
+	    },
+	    axisY:{
+	        title: "percentage"
+	    },
+	    data: [{  
+	        type: "stackedColumn100",
+	        name: "Percentage You Passed",
+	        showInLegend: "true",
+	        dataPoints: [
+	        {  y: 15, label: "Cafeteria"},
+	        {  y: 10, label: "Lounge" },
+	        {  y: 72, label: "Games Room" },
+	        {  y: 30, label: "Lecture Hall" },
+	        {  y: 21, label: "Library"}                
+	        ]
+	    }, {        
+	        type: "stackedColumn100",        
+	        name: "Percentage You Failed",
+	        showInLegend: "true",
+	        dataPoints: [
+	        {  y: 5, label: "Cafeteria"},
+	        {  y: 14, label: "Lounge" },
+	        {  y: 40, label: "Games Room" },
+	        {  y: 43, label: "Lecture Hall" },
+	        {  y: 17, label: "Library"}                
+	        ]
+	    }]
+    });
+    chart.render();
+  }
 
 
 
