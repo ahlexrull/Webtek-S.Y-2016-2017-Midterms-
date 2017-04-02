@@ -3,3 +3,4 @@ VIEW ASSIGNMENT
 * Status of the assignment (Done)
 * Countdown of the assignment (simultaneous countdown)
 * The user must be able to edit or delete previously saved assignments or CS..
+* Chart for the class standing of the student.
