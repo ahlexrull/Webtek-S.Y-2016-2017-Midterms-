@@ -348,6 +348,17 @@ function remove_ALLAssignments(){
 	}
 }
 
+function remove_Subjects(){
+	if (localStorage.assignment) {
+		localStorage.removeItem('assignment');
+		window.location.reload();
+	}
+	else{
+		alert("No Subject record to delete");
+	}
+
+}
+
 
 
 /**
