@@ -53,7 +53,7 @@ function display_subjects(){
 		}
 	}else{
 		alert("No Subjects as of the moment.");
-		location = '../page/addSubjects.html';
+		location = '../page/addSubject.html';
 	}
 
 }
@@ -98,10 +98,9 @@ function display_AssgDetails (){
 	if (localStorage.assignment){
 
 		var assignmentDetails = JSON.parse(localStorage.getItem('assignment'));
-		var i;
+		var dates = new Array();
 
-		for (i=0, len = assignmentDetails.length; i < len; i++ ){
-			console.log(assignmentDetails[i]);
+		for (var i=0, len = assignmentDetails.length; i < len; i++ ){
 			var table = document.getElementById("assignmentTable");
 			var row = table.insertRow(1);
 			var cell1 = row.insertCell(0);
@@ -154,99 +153,61 @@ function display_AssgDetails (){
 				cell5.innerHTML = timeDue;
 
 				var dueDate = new Date(datearray[0], datearray[1] -1, datearray[2], timearray[0], timearray[1], 0, 0);
-
-				/**
-					> working code which display the remaining time before deadline
-					> no countdown
-					> value only changes after refresh..
-				*/
-				/*
-				var ctdown;
-				var now = new Date();
-
-				// Find the distance between now an the count down date
-				var distance = dueDate.getTime() - now.getTime();
-				console.log(distance);
-
-				if (dueDate < now) {
-					//clearInterval(x);
-					ctdown  = "EXPIRED";
-					cell6.innerHTML = ctdown;
-				}else{
-				 	// Time calculations for days, hours, minutes and seconds
-				 	let days;
-				 	let hours;
-				 	let minutes;
-				 	let seconds;
-
-					days = Math.floor(distance / (1000 * 60 * 60 * 24));
-					console.log(days);
-					if (days === 0) {
-						hours = Math.floor(distance / (1000 * 60 *60));
-					}else{
-						hours = Math.floor(distance % (distance / (1000 * 60 * 60 * 24)));	
-					}
-					console.log(hours);
-					minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-					console.log(minutes);
-					seconds = Math.floor((distance % (1000 * 60)) / 1000);
-					console.log(seconds);
-					// Display the result in the element with id="assignmentTable"
-					ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-				//console.log(dueDate);
-				}
-				cell6.innerHTML = ctdown;
-				*/
-				/**
-					> code with set interval
-					> only the first row has a value.
-				*/
-				{
-					// Set the date we're counting down to
-					// Update the count down every 1 second
-					var x = setInterval(function() {
-
-						var ctdown;
-						var now = new Date();
-
-						// Find the distance between now an the count down date
-						var distance = dueDate.getTime() - now.getTime();
-
-						if (dueDate < now) {
-							clearInterval(x);
-							ctdown  = "EXPIRED";
-							cell6.innerHTML = ctdown;
-						}else{
-						 	// Time calculations for days, hours, minutes and seconds
-						 	let days;
-						 	let hours;
-						 	let minutes;
-						 	let seconds;
-
-							days = Math.floor(distance / (1000 * 60 * 60 * 24));
-							console.log(days);
-							if (days === 0) {
-								hours = Math.floor(distance / (1000 * 60 *60));
-							}else{
-								hours = Math.floor(distance % (distance / (1000 * 60 * 60 * 24)));	
-							}
-							minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-							seconds = Math.floor((distance % (1000 * 60)) / 1000);
-							// Display the result in the element with id="assignmentTable"
-							ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-							cell6.innerHTML = ctdown;
-						}
-					}, 1000);
-					
-				}
-				
+				dates.push(dueDate);				
 			}				
 		}
+		for (var i = 0, len = dates.length; i < len; i++) {
+			countdown(i, dates);	
+		}
+
+		
 
 	}else{
 		alert("No assignments as of the moment.");
 		location = '../page/addassign.html';
 	}	
+}
+
+function countdown(i, dates){
+
+	var table = document.getElementById("assignmentTable");
+	var cdCell = table.rows[i+1].cells.item(5);
+
+	// Set the date we're counting down to
+	// Update the count down every 1 second
+
+	setInterval(function() {
+
+		var ctdown;
+		var now = new Date();
+
+		// Find the distance between now an the count down date
+		var distance = dates[i].getTime() - now.getTime();
+
+		if (dates[i] < now) {
+			clearInterval(dates[i]);
+			ctdown  = "EXPIRED";
+			cdCell.innerHTML = ctdown;
+		}else{
+		 	// Time calculations for days, hours, minutes and seconds
+		 	let d = 1000 * 60 * 60 * 24;
+		 	let h = 1000 * 60 * 60;
+		 	let m = 1000 * 60;
+		 	let s = 1000;
+		 	let days;
+		 	let hours;
+		 	let minutes;
+		 	let seconds;
+
+			days = Math.floor(distance / d);
+			hours = Math.floor((distance % d) / h);
+			minutes = Math.floor((distance % h) / m);
+			seconds = Math.floor((distance % m) / s);
+			// Display the result in the element with id="assignmentTable"
+			ctdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+			cdCell.innerHTML = ctdown;
+		}
+	}, 1000);
 }
 
 /*
@@ -329,6 +290,8 @@ function display_CsDetails (){
 
 function remove_ALLCS(){
 
+	
+
 	if (localStorage.classStanding) {
 		localStorage.removeItem('classStanding');
 		window.location.reload();
@@ -349,8 +312,8 @@ function remove_ALLAssignments(){
 }
 
 function remove_Subjects(){
-	if (localStorage.assignment) {
-		localStorage.removeItem('assignment');
+	if (localStorage.subjects) {
+		localStorage.removeItem('subjects');
 		window.location.reload();
 	}
 	else{
