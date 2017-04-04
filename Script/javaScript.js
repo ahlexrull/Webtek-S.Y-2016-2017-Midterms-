@@ -94,6 +94,26 @@ function get_AssgDetails () {
 
 }
 
+function editorDeleteAss(){
+	 var editinfo = {};
+	 var editinfo .assNames = prompt("Assignment Name: ");
+	 var editinfo .userSubject = prompt("Subject: ");
+
+	 var assignmentsDetail = JSON.parse(localStorage.getItem('assignment'));
+
+	 for (var i=0, len = assignmentDetails.length; i < len; i++ ){
+
+	 if(assignmentsDetail[0] == .assNames) && assignmentsDetail[1] == .userSubject){
+			document.getElementById("aname").value= assignmentDetails[i].assgName;
+			document.getElementById("aname").value= assignmentDetails[i].assgSubject;
+			document.getElementById("aname").value= assignmentDetails[i].assgDetails;
+
+	 }
+	}
+	location = '../page/addassign.html';
+
+}
+
 function display_AssgDetails (){
 	if (localStorage.assignment){
 
