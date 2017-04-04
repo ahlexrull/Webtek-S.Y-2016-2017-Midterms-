@@ -153,7 +153,7 @@ function display_AssgDetails (){
 				cell5.innerHTML = timeDue;
 
 				var dueDate = new Date(datearray[0], datearray[1] -1, datearray[2], timearray[0], timearray[1], 0, 0);
-				dates.push(dueDate);				
+				dates.unshift(dueDate);				
 			}				
 		}
 		for (var i = 0, len = dates.length; i < len; i++) {
