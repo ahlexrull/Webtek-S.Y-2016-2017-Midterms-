@@ -94,6 +94,7 @@ function get_AssgDetails () {
 
 }
 
+/* Comment ko muna pansamantala
 function editorDeleteAss(){
 	 var editinfo = {};
 	 var editinfo .assNames = prompt("Assignment Name: ");
@@ -113,6 +114,7 @@ function editorDeleteAss(){
 	location = '../page/addassign.html';
 
 }
+*/
 
 function display_AssgDetails (){
 	if (localStorage.assignment){
