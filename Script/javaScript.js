@@ -350,40 +350,32 @@ function remove_Subjects(){
 Chart JavaScript
 **/
 
- function loadChart() {
+function loadChart() {
+   	var csDetailsForChart = JSON.parse(localStorage.getItem('classStanding'));
+   	var dataPoints = [];
+
+   	for (key in csDetailsForChart){
+   		var percentPassed = ((Number(csDetailsForChart[key].csScore)) / (Number(csDetailsForChart[key].csPoint))) * 100;
+   		dataPoints.push({y: percentPassed, label: csDetailsForChart[key].csName});
+   	}
+
 	var chart = new CanvasJS.Chart("chartContainer",{
 	    title:{
-	    	text: "Number of Students in Each Room"   
+	    	text: "Overview of your Class Standing"   
 	    },
 	    animationEnabled: true,
+	    animationDuration:3000,
 	    axisX:{
-	    	title: "Rooms"
+	    	title: "Integrative Programming"
 	    },
 	    axisY:{
-	        title: "percentage"
+	        title: "Percent"
 	    },
 	    data: [{  
-	        type: "stackedColumn100",
+	        type: "bar",
+	        toolTipContent: "{y}%",
 	        name: "Percentage You Passed",
-	        showInLegend: "true",
-	        dataPoints: [
-	        {  y: 15, label: "Cafeteria"},
-	        {  y: 10, label: "Lounge" },
-	        {  y: 72, label: "Games Room" },
-	        {  y: 30, label: "Lecture Hall" },
-	        {  y: 21, label: "Library"}                
-	        ]
-	    }, {        
-	        type: "stackedColumn100",        
-	        name: "Percentage You Failed",
-	        showInLegend: "true",
-	        dataPoints: [
-	        {  y: 5, label: "Cafeteria"},
-	        {  y: 14, label: "Lounge" },
-	        {  y: 40, label: "Games Room" },
-	        {  y: 43, label: "Lecture Hall" },
-	        {  y: 17, label: "Library"}                
-	        ]
+	        dataPoints: dataPoints
 	    }]
     });
     chart.render();
