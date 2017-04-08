@@ -42,9 +42,19 @@
             <button onclick="remove_ALLCS()">Clear All CS</button>
             
         </div>
-        
+
+        <div id="buttonContainer">
+            <form>
+                <p>Choose your subject to view your performance on that subject.</p>
+
+                <select id="subselect">
+                        <option selected disabled hidden>Select Subject</option>
+                </select>
+                <button onclick = "loadChart()";>Submit</button>
+            </form>
+        </div>
         <div id="chartContainer" style="height: 400px; width: 100%;"></div>
-       
+        
     </body>
     
 </html>
