@@ -6,7 +6,7 @@
         <script type="text/javascript" src="../Script/canvasjs.min.js"></script>
     </header>
     
-    <body onload="display_CsDetails(); loadChart();">
+    <body onload="show_sub(), loadChart()">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -22,6 +22,11 @@
         <div id="main">
             <div id="tablediv">
 
+                <form id="addform">
+                    <select id="subselect" onclick="display_CsDetails()">
+                        <option selected disabled hidden>Select Subject</option>
+                    </select>
+                </form>
                 <table id="cStable">
                     <tr>
                         <th>Class Standing Name</th>
@@ -30,12 +35,16 @@
                         <th>Overall Points</th>
                     </tr>
                 </table>
+                
 
             </div>
+           
             <button onclick="remove_ALLCS()">Clear All CS</button>
+            
         </div>
-        <div id="chartContainer" style="height: 400px; width: 100%;"></div>
         
+        <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+       
     </body>
     
 </html>

@@ -93,8 +93,7 @@ function get_AssgDetails () {
 	localStorage.setItem('assignment', JSON.stringify(assignment));
 
 }
-
-/* Comment ko muna pansamantala
+/*
 function editorDeleteAss(){
 	 var editinfo = {};
 	 var editinfo .assNames = prompt("Assignment Name: ");
@@ -104,18 +103,15 @@ function editorDeleteAss(){
 
 	 for (var i=0, len = assignmentDetails.length; i < len; i++ ){
 
-	 if(assignmentsDetail[0] == .assNames) && assignmentsDetail[1] == .userSubject){
-			document.getElementById("aname").value= assignmentDetails[i].assgName;
-			document.getElementById("aname").value= assignmentDetails[i].assgSubject;
-			document.getElementById("aname").value= assignmentDetails[i].assgDetails;
-
-	 }
+		if(assignmentsDetail[0] == .assNames) && assignmentsDetail[1] == .userSubject){
+				document.getElementById("aname").value= assignmentDetails[i].assgName;
+				document.getElementById("aname").value= assignmentDetails[i].assgSubject;
+				document.getElementById("aname").value= assignmentDetails[i].assgDetails;
+		}
 	}
 	location = '../page/addassign.html';
-
 }
 */
-
 function display_AssgDetails (){
 	if (localStorage.assignment){
 
@@ -286,23 +282,36 @@ function get_CsDetails () {
 
 
 function display_CsDetails (){
+
+	var sub = document.getElementById('subselect').value;
+	var tablecs = document.getElementById("cStable");
+
+	if(tablecs.rows.length > 1){
+		for(var i = tablecs.rows.length;i>1;i--){
+			tablecs.deleteRow(1);	
+		}
+	}
+
 	if (localStorage.classStanding){
 
 		var csDetails = JSON.parse(localStorage.getItem('classStanding'));
 
-		for (var i=0, len = csDetails.length; i < len; i++ ){
-			console.log(csDetails[i]);
-			var tablecs = document.getElementById("cStable");
-			var rowcs = tablecs.insertRow(1);
-			var cell1cs = rowcs.insertCell(0);
-			var cell2cs = rowcs.insertCell(1);
-			var cell3cs = rowcs.insertCell(2);
-			var cell4cs = rowcs.insertCell(3)
+		//Delete content of the table before displaying..
 
-			cell1cs.innerHTML = csDetails[i].csName;
-			cell2cs.innerHTML = csDetails[i].csSubject;
-			cell3cs.innerHTML = csDetails[i].csScore;
-			cell4cs.innerHTML = csDetails[i].csPoint;
+		for (var i=0, len = csDetails.length; i < len; i++ ){
+			if (csDetails[i].csSubject === sub) {
+				var rowcs = tablecs.insertRow(1);
+				var cell1cs = rowcs.insertCell(0);
+				var cell2cs = rowcs.insertCell(1);
+				var cell3cs = rowcs.insertCell(2);
+				var cell4cs = rowcs.insertCell(3);
+
+				cell1cs.innerHTML = csDetails[i].csName;
+				cell2cs.innerHTML = csDetails[i].csSubject;
+				cell3cs.innerHTML = csDetails[i].csScore;
+				cell4cs.innerHTML = csDetails[i].csPoint;
+			}
+			
 		}
 	}else{
 		alert("No Class Standing as of the moment.");
@@ -350,32 +359,40 @@ function remove_Subjects(){
 Chart JavaScript
 **/
 
-function loadChart() {
-   	var csDetailsForChart = JSON.parse(localStorage.getItem('classStanding'));
-   	var dataPoints = [];
-
-   	for (key in csDetailsForChart){
-   		var percentPassed = ((Number(csDetailsForChart[key].csScore)) / (Number(csDetailsForChart[key].csPoint))) * 100;
-   		dataPoints.push({y: percentPassed, label: csDetailsForChart[key].csName});
-   	}
-
+ function loadChart() {
 	var chart = new CanvasJS.Chart("chartContainer",{
 	    title:{
-	    	text: "Overview of your Class Standing"   
+	    	text: "Number of Students in Each Room"   
 	    },
 	    animationEnabled: true,
-	    animationDuration:3000,
 	    axisX:{
-	    	title: "Integrative Programming"
+	    	title: "Rooms"
 	    },
 	    axisY:{
-	        title: "Percent"
+	        title: "percentage"
 	    },
 	    data: [{  
-	        type: "bar",
-	        toolTipContent: "{y}%",
+	        type: "stackedColumn100",
 	        name: "Percentage You Passed",
-	        dataPoints: dataPoints
+	        showInLegend: "true",
+	        dataPoints: [
+	        {  y: 15, label: "Cafeteria"},
+	        {  y: 10, label: "Lounge" },
+	        {  y: 72, label: "Games Room" },
+	        {  y: 30, label: "Lecture Hall" },
+	        {  y: 21, label: "Library"}                
+	        ]
+	    }, {        
+	        type: "stackedColumn100",        
+	        name: "Percentage You Failed",
+ 	        showInLegend: "true",
+	        dataPoints: [
+	        {  y: 5, label: "Cafeteria"},
+	        {  y: 14, label: "Lounge" },
+	        {  y: 40, label: "Games Room" },
+	        {  y: 43, label: "Lecture Hall" },
+	        {  y: 17, label: "Library"}                
+	        ]
 	    }]
     });
     chart.render();
