@@ -6,7 +6,7 @@
         <script type="text/javascript" src="../Script/canvasjs.min.js"></script>
     </header>
     
-    <body onload="show_sub(), loadChart()">
+    <body onload="show_sub()">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -23,7 +23,7 @@
             <div id="tablediv">
 
                 <form id="addform">
-                    <select id="subselect" onclick="display_CsDetails()">
+                    <select id="subselect" onclick="display_CsDetails(); loadChart();">
                         <option selected disabled hidden>Select Subject</option>
                     </select>
                 </form>
@@ -42,7 +42,7 @@
             <button onclick="remove_ALLCS()">Clear All CS</button>
             
         </div>
-
+        <!--
         <div id="buttonContainer">
             <form>
                 <p>Choose your subject to view your performance on that subject.</p>
@@ -53,6 +53,7 @@
                 <button onclick = "loadChart()";>Submit</button>
             </form>
         </div>
+        -->
         <div id="chartContainer" style="height: 400px; width: 100%;"></div>
         
     </body>

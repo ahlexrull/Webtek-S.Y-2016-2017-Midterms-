@@ -360,25 +360,29 @@ Chart JavaScript
 **/
 
 function loadChart() {
-   	var csDetailsForChart = JSON.parse(localStorage.getItem('classStanding'));
+   	var csDetails = JSON.parse(localStorage.getItem('classStanding'));
    	var dataPoints = [];
+   	var sub = document.getElementById('subselect').value;
 
-   	for (key in csDetailsForChart){
-   		var percentPassed = ((Number(csDetailsForChart[key].csScore)) / (Number(csDetailsForChart[key].csPoint))) * 100;
-   		dataPoints.push({y: percentPassed, label: csDetailsForChart[key].csName});
+   	for (key in csDetails){
+   		if (csDetails[key].csSubject == sub){
+   			var percentPassed = ((Number(csDetails[key].csScore)) / (Number(csDetails[key].csPoint))) * 100;
+   			dataPoints.push({y: percentPassed, label: csDetails[key].csName});
+   			var axisXTitle = csDetails[key].csSubject;
+   		}
    	}
 
 	var chart = new CanvasJS.Chart("chartContainer",{
 	    title:{
-	    	text: "Overview of your Class Standing"   
+	    	text: axisXTitle
 	    },
 	    animationEnabled: true,
 	    animationDuration:3000,
 	    axisX:{
-	    	title: "Integrative Programming"
+	    	title: "Class Standing Name"
 	    },
 	    axisY:{
-	        title: "Percent"
+	        title: "Percentage you passed"
 	    },
 	    data: [{  
 	        type: "bar",
