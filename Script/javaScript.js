@@ -367,7 +367,11 @@ function loadChart() {
    	for (key in csDetails){
    		if (csDetails[key].csSubject == sub){
    			var percentPassed = ((Number(csDetails[key].csScore)) / (Number(csDetails[key].csPoint))) * 100;
-   			dataPoints.push({y: percentPassed, label: csDetails[key].csName});
+   			if (percentPassed < 50){
+   				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Failed.", markerColor: "red", markerType: "triangle"});
+   			}else{
+   				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Passed."});
+   			}
    			var axisXTitle = csDetails[key].csSubject;
    		}
    	}
@@ -377,7 +381,7 @@ function loadChart() {
 	    	text: axisXTitle
 	    },
 	    animationEnabled: true,
-	    animationDuration:3000,
+	    animationDuration:2000,
 	    axisX:{
 	    	title: "Class Standing Name"
 	    },
