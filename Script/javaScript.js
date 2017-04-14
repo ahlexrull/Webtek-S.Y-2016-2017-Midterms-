@@ -386,7 +386,7 @@ function loadChart() {
 	        maximum: 100,
 	    },
 	    data: [{  
-	        type: "bar",
+	        type: "line",
 	        toolTipContent: "{y}%",
 	        name: "Percentage You Passed",
 	        dataPoints: dataPoints
