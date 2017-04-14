@@ -382,7 +382,8 @@ function loadChart() {
 	    	title: "Class Standing Name"
 	    },
 	    axisY:{
-	        title: "Percentage you passed"
+	        title: "Percentage you passed",
+	        maximum: 100,
 	    },
 	    data: [{  
 	        type: "bar",
