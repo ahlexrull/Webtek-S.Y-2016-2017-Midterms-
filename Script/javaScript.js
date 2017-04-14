@@ -393,6 +393,7 @@ function loadChart() {
 	        type: "line",
 	        toolTipContent: "{y}%",
 	        name: "Percentage You Passed",
+	        lineThickness: 5,
 	        dataPoints: dataPoints
 	    }]
     });
