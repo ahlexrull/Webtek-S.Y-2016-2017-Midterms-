@@ -4,8 +4,9 @@
 
 function get_subjects (){
 	var sub = {};
-
-	sub .term = document.getElementById('Term').value;
+	
+	var t = document.getElementById('Term');
+	sub .term = t.options[t.selectedIndex].text;
 	sub .classcode = document.getElementById('subClassCode').value;
 	sub .cNumber = document.getElementById('subCourseNumber').value;
 	sub .subname = document.getElementById('subname').value;
@@ -16,18 +17,48 @@ function get_subjects (){
 	sub .classbuilding = document.getElementById('building').value;
 	sub .subroom = document.getElementById('subRoom').value;
 
-
-	if(sub == ''){
-		alert("Course Description must be filled out! Example: \"Web Technologies Lab\"");
+	if(sub.term == ''){
+		alert("Term must be filled out! Example:\"First sem, second sem or short term\".");
 		return false;
+	}
+	if(sub.classcode == ''){
+		alert("classcode must be filled out! Example:\"9594 or 9594A...\".");
+		return false;
+	}
+	if(sub.cNumber == ''){
+		alert("Course Number must be filled out! Example: \"IT212 CS311 Fil1...\".");
+		return false;
+	}
+	if(sub.subname == ''){
+		alert("Course Description must be filled out! Example: \"Web Technologies Lab...\".");
+		return false;
+	}
+	if(sub.subunits == ''){
+		alert("Units must be filled out!");
+		return false;
+	}
+	if(sub.substart == ''){
+		alert("Schedule (Start - End) must be filled out!");
+		return false;
+	}
+	if(sub.subend == ''){
+		alert("Schedule (Start - End) must be filled out!");
+		return false;
+	}
+	if(sub.classbuilding == ''){
+		alert("Bldg must be filled out!");
+		return false;
+	}
+	if(sub.subroom == ''){
+		alert("Room must be filled out! Example:\"A425 S326 P407...\"");
+		return false;
+
 	}
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'));
 	}else{
 		subjects = [];
 	}
-
-
 
 	subjects.push(sub);
 	localStorage.setItem('subjects', JSON.stringify(subjects))
@@ -39,13 +70,13 @@ function show_sub() {
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
 	}else{
-		subjects = []
-		alert("Add subjects first to view the list of subjects.");
-		location = '../page/addsubject.html'
+		subjects = [];
+		alert("Add subjects first to add or view the Class Standing.");
+		location = '../page/subjects.html';
 	}
 
 	for(let i = 0;i < subjects.length;i++){
-		val = subjects[i];
+		val = subjects[i].subname;
 		var node = document.createElement("option");
 		var textnode = document.createTextNode(val);
 		node.appendChild(textnode);
@@ -58,11 +89,8 @@ function show_sub1() {
 	var val;
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
-	}else{
-		subjects = []
-		alert("Add subjects first to view the list of subjects.");
-		location = '../page/addsubject.html'
 	}
+	
 
 	for(let i = 0;i < subjects.length;i++){
 		val = subjects[i];
@@ -84,21 +112,21 @@ function display_subjects(){
 			console.log(subjects[i]);
 			var tablesub = document.getElementById("subtable");
 			var rowsub = tablesub.insertRow(1);
-			var cell1sub = rowsub.insertCell(0);
-			var cell2sub = rowsub.insertCell(1);
-			var cell3sub = rowsub.insertCell(2);
-			var cell4sub = rowsub.insertCell(3);
-			var cell5sub = rowsub.insertCell(4);
-			var cell6sub = rowsub.insertCell(5);
+			var cell0sub = rowsub.insertCell(0);
+			var cell1sub = rowsub.insertCell(1);
+			var cell2sub = rowsub.insertCell(2);
+			var cell3sub = rowsub.insertCell(3);
+			var cell4sub = rowsub.insertCell(4);
+			var cell5sub = rowsub.insertCell(5);
+			var cell6sub = rowsub.insertCell(6);
 
-			var subSchedule = subjects[i].subStart + " : " + subjects[i].subEnd + " " + subjects[i].classdate;
-			var cRoom = subjects[i].subroom + " " +subjects[i].building; 
+			cell0sub.innerHTML = subjects[i].term;
 			cell1sub.innerHTML = subjects[i].classcode;
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
 			cell4sub.innerHTML = subjects[i].subunits;
-			cell5sub.innerHTML = subjects[i].subSchedule;
-			cell6sub.innerHTML = subjects[i].cRoom;
+			cell5sub.innerHTML = subjects[i].substart + "-" + subjects[i].subend + " " + subjects[i].classdate;
+			cell6sub.innerHTML = subjects[i].classbuilding + subjects[i].subroom;
 		}
 	}
 }
@@ -114,6 +142,7 @@ function get_AssgDetails () {
 	newAssgDetails	.assgSubject = document.getElementById('subselect').value;
 	newAssgDetails	.assgDetails = document.getElementById('adet').value;
 	newAssgDetails	.assgDate = document.getElementById('adate').value;
+	newAssgDetails  .assgPeriod = document.getElementById('Period').value;
 
 	if(newAssgDetails.assgName == ''){
 		alert("Assignment Name must be filled out!");
@@ -125,6 +154,10 @@ function get_AssgDetails () {
 	}
 	if(newAssgDetails.assgDate == ''){
 		alert("Date must be filled out!");
+		return false;
+	}
+	if(newAssgDetails.assgPeriod == '' || newAssgDetails.assgPeriod == "Choose a period"){
+		alert("Select a period");
 		return false;
 	}
 
@@ -223,11 +256,7 @@ function display_AssgDetails (){
 			countdown(i, dates);	
 		}
 
-		
-
-	}else{
-		alert("No assignments as of the moment.");
-	}	
+	}
 }
 
 function countdown(i, dates){
@@ -281,27 +310,37 @@ function get_CsDetails () {
 	var newCsDetails = {};
 
 	newCsDetails	.csName = document.getElementById('csname').value;
+	newCsDetails	.csDate = document.getElementById('csdate').value;
 	newCsDetails	.csSubject = document.getElementById('subselect').value;
 	newCsDetails	.csScore = document.getElementById('csscore').value;
 	newCsDetails	.csPoint = document.getElementById('cspoint').value;
+	newCsDetails    .csPeriod = document.getElementById('Periods1').value;
 	
 	var score = Number(newCsDetails.csScore);
 	var points = Number(newCsDetails.csPoint);
 
 	if(score > points){
-		alert("Overall Points should be larger or equal to score");
+		alert("Overall Points should be greater or equal to score.");
 		return false;
 	}
 	if(newCsDetails.csPoint == "0" ){
-		alert("Overall Points should be larger or equal to score ");
+		alert("Overall Points should be larger or equal to score. ");
 		return false;
 	}
 	if(newCsDetails.csName == ''){
 		alert("Cs name must be filled out!");
 		return false;
 	}
+	if(newCsDetails.csDate ==''){
+		alert("Date must be filled out!");
+		return false;
+	}
 	if(newCsDetails.csSubject == '' || newCsDetails.csSubject == "Select Subject"){
 		alert("Subject must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csPeriod == '' || newCsDetails.csPeriod == "Choose a period"){
+		alert("Select a period!");
 		return false;
 	}
 	if(newCsDetails.csScore == ''){
@@ -317,6 +356,8 @@ function get_CsDetails () {
 		classStanding = JSON.parse(localStorage.getItem('classStanding'));
 	}else{
 		classStanding = [];
+		alert("Add subjects first to add or view the Class Standing.");
+		location = '../page/subjects.html';
 	}             
 
 	classStanding.push(newCsDetails);
@@ -358,8 +399,8 @@ function display_CsDetails (){
 			
 		}
 	}else{
-		alert("No Class Standing as of the moment.");
-		location = '../page/addcs.html';
+		alert("No subjects as of the moment.");
+		location = '../page/subjets.html';
 	}
 }
 
@@ -418,8 +459,6 @@ function loadChart() {
    			}
    			var axisXTitle = csDetails[key].csSubject;
 
-   			var overAllScore += csDetails[key].
-
    		}
    	}
 
@@ -445,9 +484,6 @@ function loadChart() {
 	    }]
     });
     chart.render();
-
-    var overAllScore += Number(csDetails[key].csScore);
-    var overAllPoint += Number(csDetails[key].csPoint);
 }
 
 
