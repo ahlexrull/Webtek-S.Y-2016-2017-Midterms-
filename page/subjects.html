@@ -20,9 +20,46 @@
         <div id="main">
             <div id="maindiv">
                 <form id="addform">
-                    <p>Subject Name:</p>
+                    <p>Class Code:</p>
+                    <input type="text" id="subClassCode">
+                    <p>Course Number:</p>
+                    <input type="text" id="subCourseNumber">
+
+                    <p>Course Description:</p>
                     <input type="text" id="subname">
-                    <button onclick="get_subjects()">submit</button>
+                    <p>Units:</p>
+                    <input type="number" id="subUnits">
+                    <p>Schedule (Start - End):</p>
+                    <input type="time" id="subStart"> -
+                    <input type="time" id="subEnd">
+                    <p>Course days:</p>
+                    <div class="weekDays-selector">
+                        <input type="checkbox" id="weekday-mon" class="weekday" />
+                        <label for="weekday-mon">M</label>
+                        <input type="checkbox" id="weekday-tue" class="weekday" />
+                        <label for="weekday-tue">T</label>
+                        <input type="checkbox" id="weekday-wed" class="weekday" />
+                        <label for="weekday-wed">W</label>
+                        <input type="checkbox" id="weekday-thu" class="weekday" />
+                        <label for="weekday-thu">Th</label>
+                        <input type="checkbox" id="weekday-fri" class="weekday" />
+                        <label for="weekday-fri">F</label>
+                        <input type="checkbox" id="weekday-sat" class="weekday" />
+                        <label for="weekday-sat">S</label>
+                    </div>
+                    <p>Room:</p>
+                    <select name="Building">
+                        <option selected disable>Choose Bldg initials</option>
+                        <option value="Adenauer">A</option>
+                        <option value="PE Building">DH</option>
+                        <option value="Otto Hanh">H</option>
+                        <option value="Perfecto">P</option>
+                        <option value="Rizal">R</option>
+                        <option value="Silang">S</option>
+                        <option value="Vath">V</option>
+                    </select>
+                    <input type="text" id="subRoom">
+                    <button onclick="get_subjects()">Submit</button>
                 </form>
             </div>
             
@@ -35,7 +72,12 @@
 
                 <table id="subtable">
                     <tr>
-                        <th>Subject Name</th>
+                        <th>Class Code</th>
+                        <th>Course Number</th>
+                        <th>Course Description</th>
+                        <th>Units</th>
+                        <th>Schedule and Course Days</th>
+                        <th>Room</th>
                     </tr>
                 </table>
 
