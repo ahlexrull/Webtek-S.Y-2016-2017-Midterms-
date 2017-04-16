@@ -372,6 +372,7 @@ function get_CsDetails () {
 
 }
 
+/*
 function show_cs() {
     var x = document.getElementById('maindiv');
     if (x.style.display === 'none') {
@@ -380,18 +381,20 @@ function show_cs() {
         x.style.display = 'none';
     }
 
-    csDetails = = JSON.parse(localStorage.getItem('classStanding'));
+     var csDetails == JSON.parse(localStorage.getItem('classStanding'));
     for (var j=0, lene = csDetails.length; j < lene; j++ ){
 	 	if(csDetails[j].csPeriod == "Prelim"){
 	 		display_CsDetails();
-	 	}else if(j == csDetails.length){
-	 		alert('Please Check your inputs ');
+	 	}else if(csDetails[j].csPeriod == "Midterm"){
+	 		display_CsDetails();
+	 	}else if(csDetails[j].csPeriod == "Finals"){
+	 		display_CsDetails();
 	 	}	
 	 }
 
 }
-
-function display_CsDetails (){
+*/
+function display_CsDetails(){
 
 	var sub = document.getElementById('subselect').value;
 	var tablecs = document.getElementById("cStable");
