@@ -396,6 +396,9 @@ function loadChart() {
    				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Passed"});
    			}
    			var axisXTitle = csDetails[key].csSubject;
+
+   			var overAllScore += csDetails[key].
+
    		}
    	}
 
@@ -421,11 +424,9 @@ function loadChart() {
 	    }]
     });
     chart.render();
-}
 
-function reportCS(){
-	var csDetails = JSON.parse(localStorage.getItem('classStanding'));
-	
+    var overAllScore += Number(csDetails[key].csScore);
+    var overAllPoint += Number(csDetails[key].csPoint);
 }
 
 
