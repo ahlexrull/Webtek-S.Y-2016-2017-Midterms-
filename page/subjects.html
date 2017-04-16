@@ -22,7 +22,7 @@
                 <form id="addform">
                     <p>Term:</p>
                     <select id="Term">
-                        <option selected disable>Choose a term</option>
+                        <option selected disabled>Choose a term</option>
                         <option value="First Sem">First Sem</option>
                         <option value="Second Sem">Second Sem</option>
                         <option value="Short Term">Short Term</option>
@@ -35,7 +35,7 @@
                     <p>Course Description:</p>
                     <input type="text" id="subname">
                     <p>Units:</p>
-                    <input type="number" id="subUnits">
+                    <input type="number" id="subUnits" min="1" max="6">
                     <p>Schedule (Start - End):</p>
                     <input type="time" id="subStart"> -
                     <input type="time" id="subEnd">
