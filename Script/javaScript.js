@@ -70,9 +70,9 @@ function show_sub() {
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
 	}else{
-		subjects = [];
-		alert("Add subjects first to add or view the Class Standing.");
-		location = '../page/subjects.html';
+		subjects = []
+		alert("Add subjects first to view the list of subjects.");
+		location = '../page/addsubject.html'
 	}
 
 	for(let i = 0;i < subjects.length;i++){
@@ -92,7 +92,7 @@ function show_sub1() {
 	}else{
 		subjects = []
 		alert("Add subjects first to view the list of subjects.");
-		location = '../page/subjects.html';
+		location = '../page/addsubject.html'
 	}
 
 	for(let i = 0;i < subjects.length;i++){
@@ -123,12 +123,14 @@ function display_subjects(){
 			var cell5sub = rowsub.insertCell(5);
 			var cell6sub = rowsub.insertCell(6);
 
+			var subSchedule = subjects[i].subStart + " : " + subjects[i].subEnd + " " + subjects[i].classdate;
+			var cRoom = subjects[i].subroom + " " +subjects[i].building;
 			cell0sub.innerHTML = subjects[i].term;
 			cell1sub.innerHTML = subjects[i].classcode;
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
 			cell4sub.innerHTML = subjects[i].subunits;
-			cell5sub.innerHTML = subjects[i].substart + "-" + subjects[i].subend + " " + subjects[i].classdate;
+			cell5sub.innerHTML = subjects[i].substart + " " + subjects[i].subend;
 			cell6sub.innerHTML = subjects[i].classbuilding + subjects[i].subroom;
 		}
 	}
@@ -363,8 +365,6 @@ function get_CsDetails () {
 		classStanding = JSON.parse(localStorage.getItem('classStanding'));
 	}else{
 		classStanding = [];
-		alert("Add subjects first to add or view the Class Standing.");
-		location = '../page/subjects.html';
 	}             
 
 	classStanding.push(newCsDetails);
@@ -379,6 +379,16 @@ function show_cs() {
     } else {
         x.style.display = 'none';
     }
+
+    csDetails = = JSON.parse(localStorage.getItem('classStanding'));
+    for (var j=0, lene = csDetails.length; j < lene; j++ ){
+	 	if(csDetails[j].csPeriod == "Prelim"){
+	 		display_CsDetails();
+	 	}else if(j == csDetails.length){
+	 		alert('Please Check your inputs ');
+	 	}	
+	 }
+
 }
 
 function display_CsDetails (){
@@ -414,8 +424,8 @@ function display_CsDetails (){
 			
 		}
 	}else{
-		alert("No subjects as of the moment.");
-		location = '../page/subjets.html';
+		alert("No Class Standing as of the moment.");
+		location = '../page/addcs.html';
 	}
 }
 
