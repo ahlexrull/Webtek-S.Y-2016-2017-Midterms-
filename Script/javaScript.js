@@ -418,8 +418,6 @@ function loadChart() {
    			}
    			var axisXTitle = csDetails[key].csSubject;
 
-   			var overAllScore += csDetails[key].
-
    		}
    	}
 
@@ -445,12 +443,6 @@ function loadChart() {
 	    }]
     });
     chart.render();
-/*
-    var overAllScore += Number(csDetails[key].csScore);
-    var overAllPoint += Number(csDetails[key].csPoint);
-    console.log(overallScore);
-    console.log(overallPoint);
-    */
 }
 
 
