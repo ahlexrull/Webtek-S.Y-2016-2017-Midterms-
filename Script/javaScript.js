@@ -391,9 +391,9 @@ function loadChart() {
    		if (csDetails[key].csSubject == sub){
    			var percentPassed = ((Number(csDetails[key].csScore)) / (Number(csDetails[key].csPoint))) * 100;
    			if (percentPassed < 50){
-   				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Failed.", markerColor: "red", markerType: "triangle"});
+   				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Failed", markerColor: "red", markerType: "triangle"});
    			}else{
-   				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Passed."});
+   				dataPoints.push({y: percentPassed, label: csDetails[key].csName, indexLabel: "Passed"});
    			}
    			var axisXTitle = csDetails[key].csSubject;
    		}
@@ -421,7 +421,12 @@ function loadChart() {
 	    }]
     });
     chart.render();
-  }
+}
+
+function reportCS(){
+	var csDetails = JSON.parse(localStorage.getItem('classStanding'));
+	
+}
 
 
 
