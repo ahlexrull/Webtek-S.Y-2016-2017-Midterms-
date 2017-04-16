@@ -68,7 +68,7 @@ function get_subjects (){
 function show_sub() {
 	var val;
 	if (localStorage.subjects) {
-		subjects = JSON.parse(localStorage.getItem('subjects'))
+		subjects = JSON.parse(localStorage.getItem('subjects'));
 	}else{
 		subjects = []
 		alert("Add subjects first to view the list of subjects.");
@@ -88,7 +88,7 @@ function show_sub() {
 function show_sub1() {
 	var val;
 	if (localStorage.subjects) {
-		subjects = JSON.parse(localStorage.getItem('subjects'))
+		subjects = JSON.parse(localStorage.getItem('subjects'));
 	}else{
 		subjects = []
 		alert("Add subjects first to view the list of subjects.");
@@ -96,7 +96,7 @@ function show_sub1() {
 	}
 
 	for(let i = 0;i < subjects.length;i++){
-		val = subjects[i];
+		val = subjects[i].subname;
 		var node = document.createElement("option");
 		var textnode = document.createTextNode(val);
 		node.appendChild(textnode);
@@ -418,11 +418,15 @@ function display_CsDetails(){
 				var cell2cs = rowcs.insertCell(1);
 				var cell3cs = rowcs.insertCell(2);
 				var cell4cs = rowcs.insertCell(3);
+				var cell5cs = rowcs.insertCell(4);
+				var cell6cs = rowcs.insertCell(5);
 
 				cell1cs.innerHTML = csDetails[i].csName;
-				cell2cs.innerHTML = csDetails[i].csSubject;
-				cell3cs.innerHTML = csDetails[i].csScore;
-				cell4cs.innerHTML = csDetails[i].csPoint;
+				cell2cs.innerHTML = csDetails[i].csDate;
+				cell3cs.innerHTML = csDetails[i].csSubject;
+				cell4cs.innerHTML = csDetails[i].csPeriod;
+				cell5cs.innerHTML = csDetails[i].csScore;
+				cell6cs.innerHTML = csDetails[i].csPoint;
 			}
 			
 		}
