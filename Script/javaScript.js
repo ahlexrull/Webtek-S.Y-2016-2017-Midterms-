@@ -45,7 +45,7 @@ function show_sub() {
 	}
 
 	for(let i = 0;i < subjects.length;i++){
-		val = subjects[i];
+		val = subjects[i].subname;
 		var node = document.createElement("option");
 		var textnode = document.createTextNode(val);
 		node.appendChild(textnode);
