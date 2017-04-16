@@ -1,0 +1,17 @@
+CACHE MANIFEST
+# 2017-04-11 v1.0 
+/picture/SLU.jpg
+/Script/canvasjs.js #check me
+/Script/javaScript.js
+/Styles/main.css
+/picture/78.jpg
+/page/assign.html
+/page/cs.html
+/page/subjects.html
+
+
+NETWORK:
+*
+
+FALLBACK:
+/page/ page/offline.html

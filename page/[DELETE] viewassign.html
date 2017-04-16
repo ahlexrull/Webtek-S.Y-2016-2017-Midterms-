@@ -1,0 +1,38 @@
+<html>
+    <header>
+        <link rel="stylesheet" type="text/css" href="../styles/main.css">
+        <script type="text/javaScript" src="../Script/javaScript.js"></script>
+    </header>
+    
+    <body onload="display_AssgDetails()">
+        <div id="head">
+            <div id="logodiv">
+                <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
+            </div>
+            
+            <div id="headtxt">
+                <h1>Student Academic Helper</h1>
+                <h4>View the Assignments</h4>
+                <a href="assign.html">Back</a>
+            </div>
+        </div>
+        <hr>
+        <!--<button onclick="display_AssgDetails()">submit</button>-->
+        <div id="main">
+
+                <table id="assignmentTable">
+                    <tr>
+                        <th>Assignment Name</th>
+                        <th>Subject</th>
+                        <th>Details</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Countdown</th>
+                    </tr>
+                </table>
+        </div>
+        <button onclick="remove_ALLAssignments()">Clear</button>
+        
+    </body>
+    
+</html>

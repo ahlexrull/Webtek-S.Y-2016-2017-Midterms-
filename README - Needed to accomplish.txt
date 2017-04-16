@@ -23,4 +23,4 @@ WEBWORKERS
 * Countdown + Alert
 * Computation of the CS
 
------END of our lives ------
+-----END------

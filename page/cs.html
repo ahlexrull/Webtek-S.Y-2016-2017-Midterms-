@@ -1,10 +1,11 @@
-
-<html>
+<html  manifest="sah.appcache">
     <header>
         <link rel="stylesheet" type="text/css" href="../styles/main.css">
+        <script type="text/javaScript" src="../Script/javaScript.js"></script>
+        <script type="text/javascript" src="../Script/canvasjs.min.js"></script>
     </header>
     
-    <body>
+    <body onload = "show_sub(); show_sub1()">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -16,25 +17,56 @@
                 <a href="../index.html">Back</a>
             </div>
         </div>
+        
         <hr>
+        
         <div id="main">
-            <div id="maindiv">
-                <div id="bwrap">
-                    <div class="bgroup">
-                        <button class="button" onclick="location.href='addcs.html';">Add</button>
-                        <p class="bsub"> Add a class standing entry</p>
-                    </div>
+             <div id="maindiv">
+                 
+                <div id="tablediv">
+                    <form id="addform">
+                        <select id="subselect" onclick="display_CsDetails(); loadChart();">
+                            <option selected disabled hidden>Select Subject</option>
+                        </select>
+                    </form>
+                    
+                <table id="cStable">
+                    <tr>
+                        <th>Class Standing Name</th>
+                        <th>Subject</th>
+                        <th>Score</th>
+                        <th>Overall Points</th>
+                    </tr>
+                </table>
 
-                    <div class="bgroup">
-                        <button class="button" onclick="location.href='viewcs.html';">Class Standing</button>
-                        <p class="bsub"> View all the entries</p>
-
-                    </div>
                 </div>
+                
+                 <button onclick="remove_ALLCS()">Clear All CS</button>
+                
+                 <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+            
             </div>
             
+            <div id="sidediv">
+                <h2>Add a Class Standing:</h2>
+                  <form id="addform">
+                    <p>Class Standing Name:</p>
+                    <input type="text" id="csname">
+                    <p>Subject:</p>
+                    <!--<input type="text" id="asubj">-->
+                    <select id="subselect1">
+                        <option selected disabled hidden>Select Subject</option>
+                    </select>
+                    <p>Score:</p>
+                    <input type="number" id="csscore">
+                    <p>Overall Points:</p>
+                    <input type="number" id="cspoint" >
+                    <br>
+                    <button onclick="get_CsDetails()">Submit</button>
+                </form>
+            
+            </div>
         </div>
-        
     </body>
     
 </html>

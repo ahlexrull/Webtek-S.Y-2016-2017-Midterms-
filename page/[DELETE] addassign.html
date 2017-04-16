@@ -1,11 +1,10 @@
-
-<html>
+<html manifest="sah.appcache">
     <header>
         <link rel="stylesheet" type="text/css" href="../styles/main.css">
         <script type="text/javaScript" src="../Script/javaScript.js"></script>
     </header>
     
-    <body onload="display_AssgDetails(),show_sub()">
+    <body >
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -13,34 +12,13 @@
             
             <div id="headtxt">
                 <h1>Student Academic Helper</h1>
-                <h4>Assignments</h4>
-                <a href="../index.html">Back</a>
+                <h4>Add an Assignment</h4>
+                <a href="assign.html">Back</a>
             </div>
         </div>
-        
         <hr>
-        
         <div id="main">
-            <div id="maindiv">
-                <h2>Assignments Log: </h2>
-                <div id="table">
-                    <table id="assignmentTable">
-                    <tr>
-                        <th>Assignment Name</th>
-                        <th>Subject</th>
-                        <th>Details</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Countdown</th>
-                    </tr>
-                </table>
-                </div>
-        <button onclick="remove_ALLAssignments()">Clear</button>    
-            </div>
-            
-            <div id="sidediv">
-                <h2>Add an Assignment:</h2>
-                 <form id="addform">
+                <form id="addform">
                     <p>Assignment Name:</p>
                     <input type="text" id="aname">
                     <p>Subject:</p>
@@ -54,8 +32,6 @@
                     <input type="datetime-local" id="adate">
                     <button onclick="get_AssgDetails()">submit</button>
                 </form>
-            </div>
-            
         </div>
         
     </body>

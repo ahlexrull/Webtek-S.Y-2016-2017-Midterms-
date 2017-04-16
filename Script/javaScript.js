@@ -37,6 +37,26 @@ function show_sub() {
 	
 }
 
+function show_sub1() {
+	var val;
+	if (localStorage.subjects) {
+		subjects = JSON.parse(localStorage.getItem('subjects'))
+	}else{
+		subjects = []
+		alert("Add subjects first.");
+		location = '../page/addsubject.html'
+	}
+
+	for(let i = 0;i < subjects.length;i++){
+		val = subjects[i];
+		var node = document.createElement("option");
+		var textnode = document.createTextNode(val);
+		node.appendChild(textnode);
+		document.getElementById("subselect1").appendChild(node);
+	}
+	
+}
+
 function display_subjects(){
 
 	if (localStorage.subjects){
@@ -182,7 +202,6 @@ function display_AssgDetails (){
 
 	}else{
 		alert("No assignments as of the moment.");
-		location = '../page/addassign.html';
 	}	
 }
 
