@@ -49,7 +49,7 @@ function get_subjects (){
 		alert("Bldg must be filled out!");
 		return false;
 	}
-	if(sub.subroom){
+	if(sub.subroom == ''){
 		alert("Room must be filled out! Example:\"A425 S326 P407...\"");
 		return false;
 
