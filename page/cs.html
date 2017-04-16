@@ -5,7 +5,7 @@
         <script type="text/javascript" src="../Script/canvasjs.min.js"></script>
     </header>
     
-    <body onload = "show_sub(); show_sub1()">
+    <body onload = "show_sub(); show_sub1();">
         <div id="head">
             <div id="logodiv">
                 <img id="headlogo" src="../picture/SLU.jpg" alt="SLU PIC">
@@ -17,6 +17,7 @@
             </div>
         </div>
         
+
         <nav id="navigation">
             <ul>
                 <li class="firstnav"><a href="../index.html"> HOME </a></li>
@@ -27,7 +28,7 @@
         </nav>
         
         <div id="main">
-             <div id="maindiv">
+             <div id="maindiv" style="display: none">
                  
                 <div id="tablediv">
                     <form id="addform">
@@ -39,7 +40,9 @@
                 <table id="cStable">
                     <tr>
                         <th>Class Standing Name</th>
+                        <th>Date</th>
                         <th>Subject</th>
+                        <th>Periods</th>
                         <th>Score</th>
                         <th>Overall Points</th>
                     </tr>
@@ -58,10 +61,19 @@
                   <form id="addform">
                     <p>Class Standing Name:</p>
                     <input type="text" id="csname">
+                    <p>Date:</p>
+                    <input type="date" id="csdate">
                     <p>Subject:</p>
                     <!--<input type="text" id="asubj">-->
                     <select id="subselect1">
                         <option selected disabled hidden>Select Subject</option>
+                    </select>
+                    <p>Periods:</p>
+                    <select id="Periods1">
+                        <option selected disable>Choose a period</option>
+                        <option value="Prelim1">Prelim</option>
+                        <option value="Midterm1">Midterm</option>
+                        <option value="Finals1">Finals</option>
                     </select>
                     <p>Score:</p>
                     <input type="number" id="csscore">

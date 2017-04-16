@@ -54,7 +54,7 @@
                 <form id="addform">
                     <p>Term:</p>
                     <select id="Term">
-                        <option selected disable>Choose a term</option>
+                        <option selected disabled>Choose a term</option>
                         <option value="First Sem">First Sem</option>
                         <option value="Second Sem">Second Sem</option>
                         <option value="Short Term">Short Term</option>
@@ -67,7 +67,7 @@
                     <p>Course Description:</p>
                     <input type="text" id="subname">
                     <p>Units:</p>
-                    <input type="number" id="subUnits">
+                    <input type="number" id="subUnits" min="1" max="6">
                     <p>Schedule (Start - End):</p>
                     <input type="time" id="subStart"> -
                     <input type="time" id="subEnd">
@@ -88,14 +88,14 @@
                     </div>
                     <p>Room:</p>
                     <select name="Building" id="building">
-                        <option selected disabled>Choose Bldg initials</option>
-                        <option value="Adenauer">A</option>
-                        <option value="PE Building">DH</option>
-                        <option value="Otto Hanh">H</option>
-                        <option value="Perfecto">P</option>
-                        <option value="Rizal">R</option>
-                        <option value="Silang">S</option>
-                        <option value="Vath">V</option>
+                        <option selected disabled>Choose Bldg Name</option>
+                        <option value="A">Adenauer</option>
+                        <option value="DH">De Haes</option>
+                        <option value="H">Otto Hanh</option>
+                        <option value="P">Perfecto</option>
+                        <option value="R">Rizal</option>
+                        <option value="S">Silang</option>
+                        <option value="V">Vath</option>
                     </select>
                     <input type="text" id="subRoom">
                     <button onclick="get_subjects()">Submit</button>
