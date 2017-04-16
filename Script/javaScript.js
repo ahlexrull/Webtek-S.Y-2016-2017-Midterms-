@@ -281,6 +281,7 @@ function get_CsDetails () {
 	var newCsDetails = {};
 
 	newCsDetails	.csName = document.getElementById('csname').value;
+	newCsDetails	.csDate = document.getElementById('csdate').value;
 	newCsDetails	.csSubject = document.getElementById('subselect').value;
 	newCsDetails	.csScore = document.getElementById('csscore').value;
 	newCsDetails	.csPoint = document.getElementById('cspoint').value;
@@ -289,15 +290,19 @@ function get_CsDetails () {
 	var points = Number(newCsDetails.csPoint);
 
 	if(score > points){
-		alert("Overall Points should be larger or equal to score");
+		alert("Overall Points should be greater or equal to score.");
 		return false;
 	}
 	if(newCsDetails.csPoint == "0" ){
-		alert("Overall Points should be larger or equal to score ");
+		alert("Overall Points should be larger or equal to score. ");
 		return false;
 	}
 	if(newCsDetails.csName == ''){
 		alert("Cs name must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csDate ==''){
+		alert("Date must be filled out!")
 		return false;
 	}
 	if(newCsDetails.csSubject == '' || newCsDetails.csSubject == "Select Subject"){
