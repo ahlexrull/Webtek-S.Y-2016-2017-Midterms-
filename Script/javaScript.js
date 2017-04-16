@@ -4,8 +4,9 @@
 
 function get_subjects (){
 	var sub = {};
-
-	sub .term = document.getElementById('Term').value;
+	
+	var t = document.getElementById('Term');
+	sub .term = t.options[t.selectedIndex].text;
 	sub .classcode = document.getElementById('subClassCode').value;
 	sub .cNumber = document.getElementById('subCourseNumber').value;
 	sub .subname = document.getElementById('subname').value;
@@ -84,15 +85,17 @@ function display_subjects(){
 			console.log(subjects[i]);
 			var tablesub = document.getElementById("subtable");
 			var rowsub = tablesub.insertRow(1);
-			var cell1sub = rowsub.insertCell(0);
-			var cell2sub = rowsub.insertCell(1);
-			var cell3sub = rowsub.insertCell(2);
-			var cell4sub = rowsub.insertCell(3);
-			var cell5sub = rowsub.insertCell(4);
-			var cell6sub = rowsub.insertCell(5);
+			var cell0sub = rowsub.insertCell(0);
+			var cell1sub = rowsub.insertCell(1);
+			var cell2sub = rowsub.insertCell(2);
+			var cell3sub = rowsub.insertCell(3);
+			var cell4sub = rowsub.insertCell(4);
+			var cell5sub = rowsub.insertCell(5);
+			var cell6sub = rowsub.insertCell(6);
 
 			var subSchedule = subjects[i].subStart + " : " + subjects[i].subEnd + " " + subjects[i].classdate;
-			var cRoom = subjects[i].subroom + " " +subjects[i].building; 
+			var cRoom = subjects[i].subroom + " " +subjects[i].building;
+			cell0sub.innerHTML = subjects[i].term;
 			cell1sub.innerHTML = subjects[i].classcode;
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
