@@ -432,7 +432,7 @@ function display_CsDetails(){
 		}
 	}else{
 		alert("No Class Standing as of the moment.");
-		location = '../page/addcs.html';
+		location = '../page/cs.html';
 	}
 }
 
