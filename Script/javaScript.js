@@ -103,7 +103,7 @@ function show_sub1() {
 }
 
 function display_subjects(){
-
+	show_sub();
 	if (localStorage.subjects){
 
 		var subjects = JSON.parse(localStorage.getItem('subjects'));
