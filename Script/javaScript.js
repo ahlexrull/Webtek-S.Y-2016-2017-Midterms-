@@ -70,9 +70,9 @@ function show_sub() {
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
 	}else{
-		subjects = []
-		alert("Add subjects first to view the list of subjects.");
-		location = '../page/addsubject.html'
+		subjects = [];
+		alert("Add subjects first to add or view the Class Standing.");
+		location = '../page/subjects.html';
 	}
 
 	for(let i = 0;i < subjects.length;i++){
@@ -92,7 +92,7 @@ function show_sub1() {
 	}else{
 		subjects = []
 		alert("Add subjects first to view the list of subjects.");
-		location = '../page/addsubject.html'
+		location = '../page/subjects.html';
 	}
 
 	for(let i = 0;i < subjects.length;i++){
@@ -128,7 +128,7 @@ function display_subjects(){
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
 			cell4sub.innerHTML = subjects[i].subunits;
-			cell5sub.innerHTML = subjects[i].substart + " - " + subjects[i].subend + " " + subjects[i].classdate;
+			cell5sub.innerHTML = subjects[i].substart + "-" + subjects[i].subend + " " + subjects[i].classdate;
 			cell6sub.innerHTML = subjects[i].classbuilding + subjects[i].subroom;
 		}
 	}
@@ -363,6 +363,8 @@ function get_CsDetails () {
 		classStanding = JSON.parse(localStorage.getItem('classStanding'));
 	}else{
 		classStanding = [];
+		alert("Add subjects first to add or view the Class Standing.");
+		location = '../page/subjects.html';
 	}             
 
 	classStanding.push(newCsDetails);
@@ -404,8 +406,8 @@ function display_CsDetails (){
 			
 		}
 	}else{
-		alert("No Class Standing as of the moment.");
-		location = '../page/addcs.html';
+		alert("No subjects as of the moment.");
+		location = '../page/subjets.html';
 	}
 }
 
