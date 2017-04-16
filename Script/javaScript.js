@@ -400,7 +400,7 @@ function display_CsDetails (){
 		}
 	}else{
 		alert("No subjects as of the moment.");
-		location = '../page/subjets.html';
+		location = '../page/subjects.html';
 	}
 }
 
