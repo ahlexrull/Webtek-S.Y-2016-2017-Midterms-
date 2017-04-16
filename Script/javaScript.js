@@ -302,7 +302,7 @@ function get_CsDetails () {
 		return false;
 	}
 	if(newCsDetails.csDate ==''){
-		alert("Date must be filled out!")
+		alert("Date must be filled out!");
 		return false;
 	}
 	if(newCsDetails.csSubject == '' || newCsDetails.csSubject == "Select Subject"){
