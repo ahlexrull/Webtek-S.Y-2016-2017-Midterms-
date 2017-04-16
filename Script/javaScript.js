@@ -145,6 +145,7 @@ function get_AssgDetails () {
 	newAssgDetails	.assgSubject = document.getElementById('subselect').value;
 	newAssgDetails	.assgDetails = document.getElementById('adet').value;
 	newAssgDetails	.assgDate = document.getElementById('adate').value;
+	newAssgDetails  .assgPeriod = document.getElementById('Period').value;
 
 	if(newAssgDetails.assgName == ''){
 		alert("Assignment Name must be filled out!");
@@ -156,6 +157,10 @@ function get_AssgDetails () {
 	}
 	if(newAssgDetails.assgDate == ''){
 		alert("Date must be filled out!");
+		return false;
+	}
+	if(newAssgDetails.assgPeriod == '' || newAssgDetails.assgPeriod == "Choose a period"){
+		alert("Select a period");
 		return false;
 	}
 
@@ -316,6 +321,7 @@ function get_CsDetails () {
 	newCsDetails	.csSubject = document.getElementById('subselect').value;
 	newCsDetails	.csScore = document.getElementById('csscore').value;
 	newCsDetails	.csPoint = document.getElementById('cspoint').value;
+	newCsDetails    .csPeriod = document.getElementById('Periods1').value;
 	
 	var score = Number(newCsDetails.csScore);
 	var points = Number(newCsDetails.csPoint);
@@ -338,6 +344,10 @@ function get_CsDetails () {
 	}
 	if(newCsDetails.csSubject == '' || newCsDetails.csSubject == "Select Subject"){
 		alert("Subject must be filled out!");
+		return false;
+	}
+	if(newCsDetails.csPeriod == '' || newCsDetails.csPeriod == "Choose a period"){
+		alert("Select a period!");
 		return false;
 	}
 	if(newCsDetails.csScore == ''){
