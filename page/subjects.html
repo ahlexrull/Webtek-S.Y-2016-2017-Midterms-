@@ -19,6 +19,30 @@
         <hr>
         <div id="main">
             <div id="maindiv">
+                <table id="graphdiv">
+            </table>
+                
+            
+            <div id="tablediv">
+
+                <table id="subtable">
+                    <tr>
+                        <th>Term</th>
+                        <th>Class Code</th>
+                        <th>Course Number</th>
+                        <th>Course Description</th>
+                        <th>Units</th>
+                        <th>Schedule and Course Days</th>
+                        <th>Room</th>
+                    </tr>
+                </table>
+
+            </div>
+            <button onclick="remove_Subjects()">Clear All Subjects</button>    
+            </div>
+            
+            <div id="sidediv">
+                
                 <form id="addform">
                     <p>Term:</p>
                     <select id="Term">
@@ -68,30 +92,6 @@
                     <input type="text" id="subRoom">
                     <button onclick="get_subjects()">Submit</button>
                 </form>
-            </div>
-            
-            <div id="sidediv">
-                <table id="graphdiv">
-            </table>
-                
-            
-            <div id="tablediv">
-
-                <table id="subtable">
-                    <tr>
-                        <th>Term</th>
-                        <th>Class Code</th>
-                        <th>Course Number</th>
-                        <th>Course Description</th>
-                        <th>Units</th>
-                        <th>Schedule and Course Days</th>
-                        <th>Room</th>
-                    </tr>
-                </table>
-
-            </div>
-            <button onclick="remove_Subjects()">Clear All Subjects</button>
-            
             </div>
         </div>
         
