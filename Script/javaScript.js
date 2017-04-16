@@ -445,11 +445,12 @@ function loadChart() {
 	    }]
     });
     chart.render();
-
+/*
     var overAllScore += Number(csDetails[key].csScore);
     var overAllPoint += Number(csDetails[key].csPoint);
     console.log(overallScore);
     console.log(overallPoint);
+    */
 }
 
 
