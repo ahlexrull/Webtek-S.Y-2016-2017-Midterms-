@@ -3,19 +3,31 @@
 */
 
 function get_subjects (){
-	var sub;
+	var sub = {};
+
+	sub .term = document.getElementById('Term').value;
+	sub .classcode = document.getElementById('subClassCode').value;
+	sub .cNumber = document.getElementById('subCourseNumber').value;
+	sub .subname = document.getElementById('subname').value;
+	sub .subunits = document.getElementById('subUnits').value;
+	sub .substart = document.getElementById('subStart').value;
+	sub .subend = document.getElementById('subEnd').value;
+	sub .classdate = document.getElementById('classdate').value;
+	sub .classbuilding = document.getElementById('building').value;
+	sub .subroom = document.getElementById('subRoom').value;
+
+
+	if(sub == ''){
+		alert("Course Description must be filled out! Example: \"Web Technologies Lab\"");
+		return false;
+	}
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'));
 	}else{
 		subjects = [];
 	}
 
-	sub = document.getElementById('subname').value;
-	if(sub == ''){
-		alert("Course Description must be filled out! Example: \"Web Technologies Lab\"");
-		return false;
 
-	}
 
 	subjects.push(sub);
 	localStorage.setItem('subjects', JSON.stringify(subjects))
@@ -73,13 +85,22 @@ function display_subjects(){
 			var tablesub = document.getElementById("subtable");
 			var rowsub = tablesub.insertRow(1);
 			var cell1sub = rowsub.insertCell(0);
+			var cell2sub = rowsub.insertCell(1);
+			var cell3sub = rowsub.insertCell(2);
+			var cell4sub = rowsub.insertCell(3);
+			var cell5sub = rowsub.insertCell(4);
+			var cell6sub = rowsub.insertCell(5);
 
-			cell1sub.innerHTML = subjects[i];
+			var subSchedule = subjects[i].subStart + " : " + subjects[i].subEnd + " " + subjects[i].classdate;
+			var cRoom = subjects[i].subroom + " " +subjects[i].building; 
+			cell1sub.innerHTML = subjects[i].classcode;
+			cell2sub.innerHTML = subjects[i].cNumber;
+			cell3sub.innerHTML = subjects[i].subname;
+			cell4sub.innerHTML = subjects[i].subunits;
+			cell5sub.innerHTML = subjects[i].subSchedule;
+			cell6sub.innerHTML = subjects[i].cRoom;
 		}
-	}else{
-		location = '../page/addSubject.html';
 	}
-
 }
 
 /*
