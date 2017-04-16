@@ -123,14 +123,12 @@ function display_subjects(){
 			var cell5sub = rowsub.insertCell(5);
 			var cell6sub = rowsub.insertCell(6);
 
-			var subSchedule = subjects[i].subStart + " : " + subjects[i].subEnd + " " + subjects[i].classdate;
-			var cRoom = subjects[i].subroom + " " +subjects[i].building;
 			cell0sub.innerHTML = subjects[i].term;
 			cell1sub.innerHTML = subjects[i].classcode;
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
 			cell4sub.innerHTML = subjects[i].subunits;
-			cell5sub.innerHTML = subjects[i].substart + " " + subjects[i].subend;
+			cell5sub.innerHTML = subjects[i].substart + "-" + subjects[i].subend + " " + subjects[i].classdate;
 			cell6sub.innerHTML = subjects[i].classbuilding + subjects[i].subroom;
 		}
 	}
