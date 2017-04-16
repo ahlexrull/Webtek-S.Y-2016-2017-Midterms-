@@ -372,7 +372,7 @@ function get_CsDetails () {
 
 }
 
-/*
+
 function show_cs() {
     var x = document.getElementById('maindiv');
     if (x.style.display === 'none') {
@@ -380,7 +380,7 @@ function show_cs() {
     } else {
         x.style.display = 'none';
     }
-
+    /*
      var csDetails == JSON.parse(localStorage.getItem('classStanding'));
     for (var j=0, lene = csDetails.length; j < lene; j++ ){
 	 	if(csDetails[j].csPeriod == "Prelim"){
@@ -391,9 +391,9 @@ function show_cs() {
 	 		display_CsDetails();
 	 	}	
 	 }
-
+	*/
 }
-*/
+
 function display_CsDetails(){
 
 	var sub = document.getElementById('subselect').value;
