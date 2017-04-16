@@ -11,6 +11,11 @@ function get_subjects (){
 	}
 
 	sub = document.getElementById('subname').value;
+	if(sub == ''){
+		alert("Course Description must be filled out! Example: \"Web Technologies Lab\"");
+		return false;
+
+	}
 
 	subjects.push(sub);
 	localStorage.setItem('subjects', JSON.stringify(subjects))
@@ -23,7 +28,7 @@ function show_sub() {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
 	}else{
 		subjects = []
-		alert("Add subjects first.");
+		alert("Add subjects first to view the list of subjects.");
 		location = '../page/addsubject.html'
 	}
 
@@ -43,7 +48,7 @@ function show_sub1() {
 		subjects = JSON.parse(localStorage.getItem('subjects'))
 	}else{
 		subjects = []
-		alert("Add subjects first.");
+		alert("Add subjects first to view the list of subjects.");
 		location = '../page/addsubject.html'
 	}
 
@@ -72,7 +77,6 @@ function display_subjects(){
 			cell1sub.innerHTML = subjects[i];
 		}
 	}else{
-		alert("No Subjects as of the moment.");
 		location = '../page/addSubject.html';
 	}
 
