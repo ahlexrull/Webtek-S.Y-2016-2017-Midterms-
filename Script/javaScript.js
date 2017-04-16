@@ -128,7 +128,7 @@ function display_subjects(){
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
 			cell4sub.innerHTML = subjects[i].subunits;
-			cell5sub.innerHTML = subjects[i].substart + "-" + subjects[i].subend + " " + subjects[i].classdate;
+			cell5sub.innerHTML = subjects[i].substart + " - " + subjects[i].subend + " " + subjects[i].classdate;
 			cell6sub.innerHTML = subjects[i].classbuilding + subjects[i].subroom;
 		}
 	}
