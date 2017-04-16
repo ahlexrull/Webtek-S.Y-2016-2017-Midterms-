@@ -1,3 +1,4 @@
+
 body{
     text-align: center;
     background-image:url(../picture/78.jpg);
@@ -36,29 +37,90 @@ body{
 /* head divs */
 
 #head{
-    height: 23%;
+    height: 20%;
     margin: 0%;
     padding: 0%;
+    padding-right: 8%;
     background-color: rgba(39, 39, 39, 0.9);
 }
 
 #logodiv{
     margin-left: 8%;
-    margin-top: 2%;
     float: left;
     z-index: 1;
     position: relative;
 }
 
 #headlogo{
-    height: 70%;
-    background-color: aliceblue;
-    border-radius: 50px;
+    height: 90%;
+    border-radius: 0 0 50px 50px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
 }
 
-#headtext{
-    
+#headtxt{
+    z-index: 0;
+    padding-left: 10%;
+    width: 70%;
 }
+
+#headtxt h1{
+    font-size: 3rem;
+    margin-bottom: 0%;
+    padding-top: 5%;
+    padding-left: 30%;
+    width: 70%;
+    color: aqua;
+}
+
+#headtxt h4{
+    font-size: 2rem;
+    width: 70%;  
+    padding-left: 30%;
+    margin-top: 0%;
+}
+
+/* Nav Div */
+
+#navigation {
+    margin-bottom: 2%;
+    z-index: 0;
+    text-align: center;   
+    width: 100%;
+    background-color: #333;
+}
+
+#navigation ul { 
+    list-style-type: none;
+    margin: 0 auto;
+    padding:0;
+    overflow: hidden;
+    display: inline-block;
+    
+   
+}
+
+#navigation li{
+    float: left;
+    display:inline-block;
+}
+
+#navigation li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navigation li a:hover {
+    background-color: #111;
+}
+
+#active {
+    background-color: #4CAF50;
+}
+
 
 /* bwrap divs */
 
@@ -82,11 +144,6 @@ body{
     text-align: center;
     width: 50%;
     padding-left: 25%;
-}
-
-#headtxt{
-    float: right;
-    width:80%; 
 }
 
 /* other divs */
@@ -123,14 +180,63 @@ table, th, td {
 
 /* Smartphones (landscape) ----------- */
 @media only screen
-and (min-width : 321px) {
-/* STYLES GO HERE */
+and (min-width : 321px)
+and (orientation: landscape){
+ 
+    #headtxt{
+        text-align: center;
+    }
+    
+    #headtxt h1{
+        font-size: 2rem;
+        margin-bottom: 1%;
+    }
+    
+    #headtxt h4{
+        font-size: 1rem;
+        margin-top: 0%;
+    }
+    
+    #addform textarea{
+        width: 100%;
+    }
+
 }
  
 /* Smartphones (portrait) ----------- */
-@media only screen
-and (max-width : 320px) {
-/* STYLES GO HERE */
+@media only screen 
+  and (max-device-width: 667px)
+  and (orientation: portrait) { 
+    
+    #head{
+        height: 20%;
+    }
+    
+    #headtxt{
+        padding-top: 2%;
+        text-align: center;
+    }
+
+     
+    #headtxt h1{
+        font-size: 3rem;
+        margin-bottom: 1%;
+    }
+    
+    #headtxt h4{
+        font-size: 2rem;
+        margin-top: 0%;
+    }  
+      
+    #sidediv{
+        float:none;
+        width: 90%;
+    }
+    #maindiv{
+        float: none;
+        width: 90%;
+    }
+    
 }
 
 /* iPads (landscape) ----------- */
@@ -138,13 +244,64 @@ and (max-width : 320px) {
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape) {
-/* STYLES GO HERE */
+    
+    #headtxt{
+        padding-top: 1%;
+        text-align: center;
+    }
+    
+    #headtxt h1{
+        font-size: 2rem;
+        margin-bottom: 1%;
+    }
+    
+    #headtxt h4{
+        font-size: 1rem;
+        margin-top: 0%;
+    }
+    
+    #addform textarea{
+        width: 100%;
+    }
+
 }
+    
  
 /* iPads (portrait) ----------- */
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
-/* STYLES GO HERE */
+    
+    #head{
+        height: 20%;
+    }
+    
+    #headtxt{
+        padding-top: 2%;
+        text-align: center;
+    }
+
+     
+    #headtxt h1{
+        font-size: 3rem;
+        margin-bottom: 1%;
+    }
+    
+    #headtxt h4{
+        font-size: 2rem;
+        margin-top: 0%;
+    }
+    
+    #sidediv{
+        float:none;
+        text-align: center;
+        width: 90%;
+    }
+    #maindiv{
+        float: none;
+        text-align: center;
+        width: 90%;
+    }
+    
 }

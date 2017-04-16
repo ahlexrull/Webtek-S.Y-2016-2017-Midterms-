@@ -10,14 +10,28 @@
             </div>
             
             <div id="headtxt">
-                <h1>Student Academic Helper</h1>
-                <h4>Home Page</h4>
+                <h1 id="title">Student Academic Helper</h1>
+                <h4 id="subtitle">Home Page</h4>
             </div>
         </div>
         
-        <hr>
-        <div i  d="main">
-                <div id="maindiv">
+        <nav id="navigation">
+            <ul>
+                <li id="active"><a href="..index.html"> HOME </a></li>
+                <li><a href="page/subjects.html"> SUBJECTS </a></li>
+                <li><a href="page/cs.html"> CLASS STANDING </a></li>
+                <li><a href="page/assign.html">ASSIGNMENTS </a></li>
+            </ul>
+        </nav>
+        
+        <div id="main">
+            
+            <div id="sidediv">
+                <h2> WELCOME,</h2> 
+                <p>to the student academic helper. This applications allows you to bring your tool on the go around campus, even when you become offline for any reason. </p>
+            </div>
+            
+            <div id="maindiv">
                     <div class="bgroup">
                         <button class="button" onclick="location.href='page/assign.html';">Assignments</button>
                         <p class="bsub"> Allows the student to record any assignments and provides a timer indicating the duration of the assignment is before it is due.</p>
@@ -36,11 +50,6 @@
                         <p class="bsub"> Help students manage thier subjects.</p>
 
                     </div>
-            </div>
-            
-            <div id="sidediv">
-                <h2> WELCOME,</h2> 
-                <p>to the student academic helper. This applications allows you to bring your tool on the go around campus, even when you become offline for any reason. </p>
             </div>
             
         </div>
