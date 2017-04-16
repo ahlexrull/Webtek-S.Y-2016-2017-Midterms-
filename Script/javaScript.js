@@ -16,18 +16,48 @@ function get_subjects (){
 	sub .classbuilding = document.getElementById('building').value;
 	sub .subroom = document.getElementById('subRoom').value;
 
-
-	if(sub == ''){
-		alert("Course Description must be filled out! Example: \"Web Technologies Lab\"");
+	if(sub.term == ''){
+		alert("Term must be filled out! Example:\"First sem, second sem or short term\".");
 		return false;
+	}
+	if(sub.classcode == ''){
+		alert("classcode must be filled out! Example:\"9594 or 9594A...\".");
+		return false;
+	}
+	if(sub.cNumber == ''){
+		alert("Course Number must be filled out! Example: \"IT212 CS311 Fil1...\".");
+		return false;
+	}
+	if(sub.subname == ''){
+		alert("Course Description must be filled out! Example: \"Web Technologies Lab...\".");
+		return false;
+	}
+	if(sub.subunits == ''){
+		alert("Units must be filled out!");
+		return false;
+	}
+	if(sub.substart == ''){
+		alert("Schedule (Start - End) must be filled out!");
+		return false;
+	}
+	if(sub.subend == ''){
+		alert("Schedule (Start - End) must be filled out!");
+		return false;
+	}
+	if(sub.classbuilding == ''){
+		alert("Bldg must be filled out!");
+		return false;
+	}
+	if(sub.subroom){
+		alert("Room must be filled out! Example:\"A425 S326 P407...\"");
+		return false;
+
 	}
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'));
 	}else{
 		subjects = [];
 	}
-
-
 
 	subjects.push(sub);
 	localStorage.setItem('subjects', JSON.stringify(subjects))
