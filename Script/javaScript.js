@@ -130,8 +130,8 @@ function display_subjects(){
 			cell2sub.innerHTML = subjects[i].cNumber;
 			cell3sub.innerHTML = subjects[i].subname;
 			cell4sub.innerHTML = subjects[i].subunits;
-			cell5sub.innerHTML = subjects[i].subSchedule;
-			cell6sub.innerHTML = subjects[i].cRoom;
+			cell5sub.innerHTML = subjects[i].substart + subjects[i].substend;
+			cell6sub.innerHTML = subjects[i].classbuilding + subjects[i].subRoom;
 		}
 	}
 }
