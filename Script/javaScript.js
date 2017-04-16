@@ -372,6 +372,14 @@ function get_CsDetails () {
 
 }
 
+function show_cs() {
+    var x = document.getElementById('maindiv');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
 
 function display_CsDetails (){
 
