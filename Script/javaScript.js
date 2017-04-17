@@ -52,7 +52,7 @@ function get_subjects (){
 	if(sub.subroom == ''){
 		alert("Room must be filled out! Example:\"A425 S326 P407...\"");
 		return false;
-
+/*
 	}
 	if (localStorage.subjects) {
 		subjects = JSON.parse(localStorage.getItem('subjects'));
@@ -63,7 +63,7 @@ function get_subjects (){
 	subjects.push(sub);
 	localStorage.setItem('subjects', JSON.stringify(subjects))
 
-}
+}*/
 
 function show_sub() {
 	var val;
